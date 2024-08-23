@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de encabezado\Contenedores">
+      <UniqueIdentifier>{ff36fb23-e6d7-47b9-be6e-8988f7e2eb57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Contenedores">
+      <UniqueIdentifier>{9d3986fe-da3c-4ef4-b07a-e111db1ec531}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -24,23 +30,38 @@
     <ClCompile Include="ProductoReciclado.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="PilaProductos.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="Camion.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="RutaDistribucion.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="ColaProcesamiento.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ListaRutaDistribucion.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Contenedores</Filter>
     </ClCompile>
     <ClCompile Include="ListaCamion.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaProductoReciclado.cpp">
+      <Filter>Archivos de origen\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaRutaDistribucion.cpp">
+      <Filter>Archivos de origen\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="NodoProducto.cpp">
+      <Filter>Archivos de origen\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="NodoProductoReciclado.cpp">
+      <Filter>Archivos de origen\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="PilaProductos.cpp">
+      <Filter>Archivos de origen\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="NodoCamion.cpp">
+      <Filter>Archivos de origen\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="NodoRuta.cpp">
+      <Filter>Archivos de origen\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="RutaDistribucion.cpp">
+      <Filter>Archivos de origen\Contenedores</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,23 +71,38 @@
     <ClInclude Include="ProductoReciclado.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="PilaProductos.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Camion.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="RutaDistribucion.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="ListaCamion.h">
+      <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
-    <ClInclude Include="ColaProcesamiento.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="ListaProductoReciclado.h">
+      <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
     <ClInclude Include="ListaRutaDistribucion.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
-    <ClInclude Include="ListaCamion.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="NodoProducto.h">
+      <Filter>Archivos de encabezado\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoProductoReciclado.h">
+      <Filter>Archivos de encabezado\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="ColaProcesamiento.h">
+      <Filter>Archivos de encabezado\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="PilaProductos.h">
+      <Filter>Archivos de encabezado\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoCamion.h">
+      <Filter>Archivos de encabezado\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoRuta.h">
+      <Filter>Archivos de encabezado\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="RutaDistribucion.h">
+      <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

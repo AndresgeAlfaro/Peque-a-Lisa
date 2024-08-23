@@ -130,8 +130,13 @@
     <ClCompile Include="Camion.cpp" />
     <ClCompile Include="ColaProcesamiento.cpp" />
     <ClCompile Include="ListaCamion.cpp" />
+    <ClCompile Include="ListaProductoReciclado.cpp" />
     <ClCompile Include="ListaRutaDistribucion.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="NodoCamion.cpp" />
+    <ClCompile Include="NodoProducto.cpp" />
+    <ClCompile Include="NodoProductoReciclado.cpp" />
+    <ClCompile Include="NodoRuta.cpp" />
     <ClCompile Include="PilaProductos.cpp" />
     <ClCompile Include="Producto.cpp" />
     <ClCompile Include="ProductoReciclado.cpp" />
@@ -141,7 +146,12 @@
     <ClInclude Include="Camion.h" />
     <ClInclude Include="ColaProcesamiento.h" />
     <ClInclude Include="ListaCamion.h" />
+    <ClInclude Include="ListaProductoReciclado.h" />
     <ClInclude Include="ListaRutaDistribucion.h" />
+    <ClInclude Include="NodoCamion.h" />
+    <ClInclude Include="NodoProducto.h" />
+    <ClInclude Include="NodoProductoReciclado.h" />
+    <ClInclude Include="NodoRuta.h" />
     <ClInclude Include="PilaProductos.h" />
     <ClInclude Include="Producto.h" />
     <ClInclude Include="ProductoReciclado.h" />
