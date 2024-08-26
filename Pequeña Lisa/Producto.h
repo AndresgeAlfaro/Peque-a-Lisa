@@ -1,18 +1,29 @@
-#ifndef Producto
+#ifndef PRODUCTO_H
+#define PRODUCTO_H
 #include <iostream>
 #include <sstream>
+#include <string>
 
 class Producto
 {
 public:
 
-	Producto();
+	Producto(int,std::string, std::string, std::string);
 	~Producto();
 
-	int getId();
-	std::string getTipo();
-	std::string getEstado();
-	std::string getDescripcion();
+	int getId()const;
+	void setID(int);
+
+	std::string getTipo()const;
+	void setTipo(std::string);
+
+	std::string getEstado()const;
+	void setEstado(std::string);
+
+	std::string getDescripcion()const;
+	void setDescripcion(std::string);
+
+	std::string toString()const;
 
 private:
 	int id;
@@ -21,7 +32,7 @@ private:
 	std::string descripcion;
 };
 
-#endif // !Producto
+#endif // PRODUCTO_H
 
 
 

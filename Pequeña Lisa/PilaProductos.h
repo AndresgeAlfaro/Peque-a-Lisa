@@ -1,23 +1,28 @@
-#ifndef PilaProductos
-#include "Producto.h"
+#ifndef PILAPRODUCTOS_H
+#define PILAPRODUCTOS_H
 
-struct Nodo {
-
-};
+#include "NodoProductos.h"
 
 class PilaProductos
 {
 public:
 
+	PilaProductos();
+	~PilaProductos();
+
+	bool estaVacio()const;
 	void pushProducto(Producto);
-	Producto popProducto();
-	Producto serchProductoID(int);
-	int serchProductoporTipo();
+	void popProducto();
+
+	Producto obtenerCima()const;
+
+	std::string imprimirPila()const;
 
 private:
-	std::string producto;
+
+	NodoProductos* top;
 
 };
 
-#endif // !PilaProductos
+#endif // !PILAPRODUCTOS_H
 

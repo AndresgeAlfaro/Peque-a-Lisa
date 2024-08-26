@@ -1,10 +1,20 @@
-#ifndef ProductoRecilado
+#ifndef PRODUCTORECILADO_H
+#define	PRODUCTORECILADO_H
+#include "Producto.h"
 
-class ProductoReciclado
+class ProductoReciclado:public Producto
 {
+public:
+
+
+
+private:
+
+	
+
 };
 
 
-#endif // !ProductoRecilado
+#endif // !PRODUCTORECILADO_H
 
 

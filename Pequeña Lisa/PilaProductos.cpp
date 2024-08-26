@@ -1,20 +1,76 @@
 #include "PilaProductos.h"
 
-void PilaProductos::pushProducto(Producto)
+PilaProductos::PilaProductos():top(nullptr){}
+
+PilaProductos::~PilaProductos()
 {
+	while (!estaVacio()) {
+		popProducto();
+	}
 }
 
-Producto PilaProductos::popProducto()
+bool PilaProductos::estaVacio()const
 {
-	return Producto();
+	return top == nullptr;
 }
 
-Producto PilaProductos::serchProductoID(int)
+void PilaProductos::pushProducto(Producto producto)
 {
-	return Producto();
+	NodoProductos* nuevo = new NodoProductos(producto);
+	if (estaVacio()) 
+	{
+		top = nuevo;
+	}
+	else
+	{
+		nuevo->setSiguiente(top);
+		top = nuevo;
+	}
 }
 
-int PilaProductos::serchProductoporTipo()
+void PilaProductos::popProducto()
 {
-	return 0;
+	if (estaVacio())
+	{
+		std::cout << "LA PILA DE PRODUCTOS ESTA VACIA" << std::endl;
+	}
+	else
+	{
+		NodoProductos* aux = top;
+		top = top->getSiguiente();
+		delete aux;
+	}
+}
+
+Producto PilaProductos::obtenerCima() const
+{
+	if (!estaVacio())
+	{
+		return top->getProducto();
+		
+	}
+	else
+	{
+		std::cerr << "LA PILA DE PRODUCTOS ESTA VACIA" << std::endl;
+		return Producto(-1, "", "", "");
+	}
+}
+
+std::string PilaProductos::imprimirPila() const
+{
+	std::string respuesta;
+	if (estaVacio())
+	{
+		respuesta = "LA PILA DE PRODUCTOS ESTA VACIA";
+	}
+	else
+	{
+		NodoProductos* aux = top;
+		while (aux != nullptr)
+		{
+			respuesta += aux->toString() + "\n";
+			aux = aux->getSiguiente();
+		}
+	}
+	return respuesta;
 }
