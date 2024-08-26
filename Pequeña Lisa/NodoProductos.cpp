@@ -1,19 +1,19 @@
 #include "NodoProductos.h"
 
-NodoProductos::NodoProductos(Producto producto): /*producto(producto),*/ siguiente{ nullptr }{}
+NodoProductos::NodoProductos(Producto* producto) : producto(producto), siguiente{ nullptr } {}
 
 NodoProductos::~NodoProductos()
 {
 }
 
-Producto NodoProductos::getProducto() const
+Producto* NodoProductos::getProducto() const
 {
-	return/* producto*/;
+	return producto;
 }
 
-void NodoProductos::setProducto(Producto producto)
+void NodoProductos::setProducto(Producto* producto)
 {
-	this->producto = /*producto*/ 0;
+	this->producto = producto;
 }
 
 NodoProductos* NodoProductos::getSiguiente() const
