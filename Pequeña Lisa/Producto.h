@@ -1,8 +1,6 @@
 #ifndef PRODUCTO_H
 #define PRODUCTO_H
-#include <iostream>
-#include <sstream>
-#include <string>
+#include "Includes.h"
 
 class Producto
 {

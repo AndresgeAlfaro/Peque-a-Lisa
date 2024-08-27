@@ -127,30 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camion.cpp" />
-    <ClCompile Include="ColaProcesamiento.cpp" />
     <ClCompile Include="Date.cpp" />
-    <ClCompile Include="ListaCamion.cpp" />
-    <ClCompile Include="ListaRutaDistribucion.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NodoProductos.cpp" />
     <ClCompile Include="PilaProductos.cpp" />
     <ClCompile Include="Producto.cpp" />
     <ClCompile Include="ProductoReciclado.cpp" />
-    <ClCompile Include="RutaDistribucion.cpp" />
     <ClCompile Include="RutinasPilaProductos.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camion.h" />
-    <ClInclude Include="ColaProcesamiento.h" />
     <ClInclude Include="Date.h" />
-    <ClInclude Include="ListaCamion.h" />
-    <ClInclude Include="ListaRutaDistribucion.h" />
+    <ClInclude Include="Includes.h" />
     <ClInclude Include="NodoProductos.h" />
     <ClInclude Include="PilaProductos.h" />
     <ClInclude Include="Producto.h" />
     <ClInclude Include="ProductoReciclado.h" />
-    <ClInclude Include="RutaDistribucion.h" />
     <ClInclude Include="RutinasPilaProductos.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
