@@ -15,7 +15,7 @@ int main()
 	std::cout << "***IMPRIMIENDO PILA***" << std::endl;
 	rutinas.imprimirPilaProductos();
 	
-	int idBuscar= 2;
+	int idBuscar= 1;
 	rutinas.busquedaPorId(idBuscar);
 	std::string stringBuscar = "Vidrio";
 	rutinas.busquedaPorTipo(stringBuscar);

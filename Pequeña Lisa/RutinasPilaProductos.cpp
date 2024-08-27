@@ -23,9 +23,9 @@ bool RutinasPilaProductos::busquedaPorId(int id)
 		if (actual.getId() == id)
 		{
 			encontrado = true;
-			if (!encontrado) {
-				std::cout << "El Producto: " << id << " , se encontro en la Pila" << std::endl;
-			}
+		
+			std::cout << "El Producto: " << id << " , se encontro en la Pila" << std::endl;
+			
 		}
 		aux.pushProducto(actual);
 		pila.popProducto();
@@ -77,6 +77,7 @@ void RutinasPilaProductos::EliminarProducto(int id)
 		else
 		{
 			encontrado = true;
+			std::cout << "El Producto: " << id << " ,se elimino de la Pila" << std::endl;
 		}
 		pila.popProducto();
 	}
