@@ -14,7 +14,13 @@ public:
 	void pushProducto(Producto);
 	void popProducto();
 
+	Producto buscarPorID(int);
+	Producto buscarPorTipo(std::string);
+
 	Producto obtenerCima()const;
+	int contarProductos();
+
+	void eliminarProductosNoReciclables();
 
 	std::string imprimirPila()const;
 

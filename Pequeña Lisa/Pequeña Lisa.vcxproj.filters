@@ -21,27 +21,21 @@
     <ClCompile Include="Producto.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ProductoReciclado.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="PilaProductos.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="NodoProductos.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="RutinasPilaProductos.cpp">
+    <ClCompile Include="Date.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Date.cpp">
+    <ClCompile Include="GestosPilaProductos.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Producto.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ProductoReciclado.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PilaProductos.h">
@@ -50,13 +44,13 @@
     <ClInclude Include="NodoProductos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="RutinasPilaProductos.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Date.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Includes.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="GestosPilaProductos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

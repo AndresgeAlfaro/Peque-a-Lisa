@@ -3,6 +3,8 @@
 Producto::Producto(int id, std::string tipo, std::string estado, std::string descripcion)
     : id( id ), tipo( tipo ), estado( estado ), descripcion( descripcion ) {}
 
+Producto::Producto() : id(0), tipo(""), estado(""), descripcion("") {}
+
 Producto::~Producto()
 {
 }

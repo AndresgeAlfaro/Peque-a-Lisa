@@ -1,27 +1,26 @@
 
-#include "RutinasPilaProductos.h"
+#include "GestosPilaProductos.h"
 
+int main() {
+    
+    GestosPilaProductos gestor;
 
-int main()
-{
- 
-	RutinasPilaProductos rutinas;
+    Producto p1(1, "vidrio", "reciclable", "Botella de vidrio");
+    Producto p2(2, "metal", "no reciclable", "Lata oxidada");
+    Producto p3(3, "plastico", "reciclable", "Envase de plastico");
+    Producto p4(4, "derivados de papel", "reciclable", "Caja de carton");
 
-	rutinas.agregarProducto(Producto(1, "Vidrio", "Limpio", "Buen estado"));
-	rutinas.agregarProducto(Producto(2, "Papel", "Libro", "Buen estado"));
-	rutinas.agregarProducto(Producto(3, "Metal", "Anillo", "Buen estado"));
-	rutinas.agregarProducto(Producto(4, "Plastico", "Botella", "Mal estado"));
+    gestor.agregarProducto(p1);
+    gestor.agregarProducto(p2);
+    gestor.agregarProducto(p3);
+    gestor.agregarProducto(p4);
 
-	std::cout << "***IMPRIMIENDO PILA***" << std::endl;
-	rutinas.imprimirPilaProductos();
-	
-	int idBuscar= 1;
-	rutinas.busquedaPorId(idBuscar);
-	std::string stringBuscar = "Vidrio";
-	rutinas.busquedaPorTipo(stringBuscar);
+    gestor.imprimirTodasLasPilas();
 
-	int eliminar = 2;
-	rutinas.EliminarProducto(eliminar);
-	std::cout<<"\n";
-	rutinas.imprimirPilaProductos();
+    gestor.eliminarProductosNoReciclables();
+
+    gestor.imprimirTodasLasPilas();
+
+    return 0;
+   
 }

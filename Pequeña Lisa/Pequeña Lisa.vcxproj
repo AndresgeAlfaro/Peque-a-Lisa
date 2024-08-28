@@ -128,21 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp" />
+    <ClCompile Include="GestosPilaProductos.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NodoProductos.cpp" />
     <ClCompile Include="PilaProductos.cpp" />
     <ClCompile Include="Producto.cpp" />
-    <ClCompile Include="ProductoReciclado.cpp" />
-    <ClCompile Include="RutinasPilaProductos.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Date.h" />
+    <ClInclude Include="GestosPilaProductos.h" />
     <ClInclude Include="Includes.h" />
     <ClInclude Include="NodoProductos.h" />
     <ClInclude Include="PilaProductos.h" />
     <ClInclude Include="Producto.h" />
-    <ClInclude Include="ProductoReciclado.h" />
-    <ClInclude Include="RutinasPilaProductos.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

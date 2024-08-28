@@ -7,6 +7,7 @@ class Producto
 public:
 
 	Producto(int,std::string, std::string, std::string);
+	Producto();
 	~Producto();
 
 	int getId()const;
