@@ -36,16 +36,20 @@ void GestosPilaProductos::agregarProducto(Producto producto)
 Producto GestosPilaProductos::buscarProductoPorID(int id)
 {
     Producto producto = pilaVidrio.buscarPorID(id);
-    if (producto.getId() != 0) return producto;
+    if (producto.getId() != 0)
+        return producto;
 
     producto = pilaMetal.buscarPorID(id);
-    if (producto.getId() != 0) return producto;
+    if (producto.getId() != 0) 
+        return producto;
 
     producto = pilaDerivadosPapel.buscarPorID(id);
-    if (producto.getId() != 0) return producto;
+    if (producto.getId() != 0) 
+        return producto;
 
     producto = pilaPlastico.buscarPorID(id);
-    if (producto.getId() != 0) return producto;
+    if (producto.getId() != 0) 
+        return producto;
 
     return Producto();
 }
@@ -81,6 +85,22 @@ void GestosPilaProductos::eliminarProductosNoReciclables()
     pilaMetal.eliminarProductosNoReciclables();
     pilaDerivadosPapel.eliminarProductosNoReciclables();
     pilaPlastico.eliminarProductosNoReciclables();
+
+}
+
+void GestosPilaProductos::contarProductosPorPila() const
+{
+    std::cout << "Cantidad de productos en la pila de Vidrio: " << pilaVidrio.contarProductos() << std::endl;
+    std::cout << "Cantidad de productos en la pila de Metal: " << pilaMetal.contarProductos() << std::endl;
+    std::cout << "Cantidad de productos en la pila de Derivados de Papel: " << pilaDerivadosPapel.contarProductos() << std::endl;
+    std::cout << "Cantidad de productos en la pila de Plastico: " << pilaPlastico.contarProductos() << std::endl;
+
+}
+
+int GestosPilaProductos::contarTotalProductos() const
+{
+
+    return pilaVidrio.contarProductos() + pilaMetal.contarProductos() + pilaDerivadosPapel.contarProductos() + pilaPlastico.contarProductos();;
 
 }
 

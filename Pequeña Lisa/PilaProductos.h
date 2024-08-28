@@ -18,7 +18,7 @@ public:
 	Producto buscarPorTipo(std::string);
 
 	Producto obtenerCima()const;
-	int contarProductos();
+	int contarProductos()const;
 
 	void eliminarProductosNoReciclables();
 

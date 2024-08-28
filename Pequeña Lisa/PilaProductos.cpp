@@ -32,7 +32,7 @@ void PilaProductos::popProducto()
 {
 	if (estaVacio())
 	{
-		std::cout << "LA PILA DE PRODUCTOS ESTA VACIA" << std::endl;
+		std::cout << "LA PILA DE PRODUCTOS ESTA VACIA\n";
 	}
 	else
 	{
@@ -76,12 +76,12 @@ Producto PilaProductos::obtenerCima() const
 	}
 	else
 	{
-		std::cerr << "LA PILA DE PRODUCTOS ESTA VACIA" << std::endl;
+		std::cerr << "LA PILA DE PRODUCTOS ESTA VACIA\n";
 		return Producto(-1, "", "", "");
 	}
 }
 
-int PilaProductos::contarProductos()
+int PilaProductos::contarProductos() const
 {
 	int contador = 0;
 	NodoProductos* actual = top;
@@ -130,7 +130,7 @@ std::string PilaProductos::imprimirPila() const
 	std::string respuesta;
 	if (estaVacio())
 	{
-		respuesta = "LA PILA DE PRODUCTOS ESTA VACIA";
+		respuesta = "LA PILA DE PRODUCTOS ESTA VACIA\n";
 	}
 	else
 	{

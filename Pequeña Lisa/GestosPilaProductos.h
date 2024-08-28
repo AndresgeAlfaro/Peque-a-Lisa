@@ -15,6 +15,9 @@ public:
     Producto buscarProductoPorID(int);
     PilaProductos& obtenerPilaPorTipo(const std::string&);
     void eliminarProductosNoReciclables();
+    void contarProductosPorPila() const;
+    int contarTotalProductos() const;
+
     void imprimirTodasLasPilas() const;
 
 private:

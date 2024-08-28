@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Date.cpp" />
     <ClCompile Include="GestosPilaProductos.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NodoProductos.cpp" />
@@ -135,7 +134,6 @@
     <ClCompile Include="Producto.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Date.h" />
     <ClInclude Include="GestosPilaProductos.h" />
     <ClInclude Include="Includes.h" />
     <ClInclude Include="NodoProductos.h" />
