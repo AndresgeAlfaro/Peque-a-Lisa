@@ -1,29 +1,37 @@
 #ifndef PRODUCTO_H
 #define PRODUCTO_H
 #include <iostream>
-#include <sstream>
 
 class Producto
 {
 public:
 
 	Producto(int, std::string, std::string, std::string);
-	virtual ~Producto();
+	Producto();
+	~Producto();
 
-	int getId();
-	std::string getTipo();
-	std::string getEstado();
-	std::string getDescripcion();
-	std::string toString();
+	int getId()const;
+	void setID(int);
 
-protected:
+	std::string getTipo()const;
+	void setTipo(std::string);
+
+	std::string getEstado()const;
+	void setEstado(std::string);
+
+	std::string getDescripcion()const;
+	void setDescripcion(std::string);
+
+	std::string toString()const;
+
+private:
 	int id;
 	std::string tipo;
 	std::string estado;
 	std::string descripcion;
 };
 
-#endif // !Producto
+#endif // PRODUCTO_H
 
 
 
