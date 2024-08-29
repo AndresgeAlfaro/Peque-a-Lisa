@@ -1,32 +1,55 @@
 #include "Producto.h"
 
-Producto::Producto(int _id, std::string _tipo, std::string _estado, std::string _descripcion): id(_id), estado(_estado), descripcion(_descripcion){}
+Producto::Producto(int id, std::string tipo, std::string estado, std::string descripcion)
+    : id(id), tipo(tipo), estado(estado), descripcion(descripcion) {}
 
-Producto::~Producto(){}
+Producto::Producto() : id(0), tipo(""), estado(""), descripcion("") {}
 
-int Producto::getId(){
-	return this->id;
+Producto::~Producto()
+{
 }
 
-std::string Producto::getTipo(){
-	return this->tipo;
+int Producto::getId()const
+{
+    return id;
 }
 
-std::string Producto::getEstado(){
-	return this->estado;
+void Producto::setID(int id)
+{
+    this->id = id;
 }
 
-std::string Producto::getDescripcion(){
-	return this->descripcion;
+std::string Producto::getTipo()const
+{
+    return tipo;
 }
 
-std::string Producto::toString() {
-	std::stringstream s;
+void Producto::setTipo(std::string tipo)
+{
+    this->tipo = tipo;
+}
 
-	s << "***INFORMACION DEL PRODUCTO***"
-		<< "\nID: " << id
-		<< "\nTipo: " << tipo
-		<< "\nEstado: " << estado
-		<< "Descripcion: " << descripcion;
-	return s.str();
+std::string Producto::getEstado()const
+{
+    return estado;
+}
+
+void Producto::setEstado(std::string estado)
+{
+    this->estado = estado;
+}
+
+std::string Producto::getDescripcion()const
+{
+    return descripcion;
+}
+
+void Producto::setDescripcion(std::string descripcion)
+{
+    this->descripcion = descripcion;
+}
+
+std::string Producto::toString() const
+{
+    return "PRODUCTO{" + std::to_string(id) + ", " + tipo + ", " + estado + ", " + descripcion + " }";
 }
