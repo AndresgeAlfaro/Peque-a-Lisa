@@ -1,4 +1,4 @@
-#ifndef COLAPROCESAMIENTO_H
+/*#ifndef COLAPROCESAMIENTO_H
 #define COLAPROCESAMIENTO_H
 
 #include <string>
@@ -10,7 +10,7 @@ class ColaProcesamiento{
 public:
 	void agregar(ProductoReciclado);
 	ProductoReciclado procesarProducto();
-	ListaProductoReciclado buscarPorFecha(Date, Date);
+	ListaProductoReciclado buscarPorFecha();
 
 private:
 	NodoProductoReciclado frente;
@@ -20,3 +20,4 @@ private:
 };
 
 #endif
+*/

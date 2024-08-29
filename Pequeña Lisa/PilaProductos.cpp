@@ -1,20 +1,145 @@
 #include "PilaProductos.h"
 
-void PilaProductos::pushProducto(Producto*)
+PilaProductos::PilaProductos() :top(nullptr) {}
+
+PilaProductos::~PilaProductos()
 {
+	while (!estaVacio()) {
+		popProducto();
+	}
 }
 
-Producto PilaProductos::popProducto()
+bool PilaProductos::estaVacio()const
 {
-    return Producto();
+	return top == nullptr;
 }
 
-Producto PilaProductos::buscarPorId(int)
+void PilaProductos::pushProducto(Producto producto)
 {
-    return Producto();
+	NodoProductos* nuevo = new NodoProductos(producto);
+	if (estaVacio())
+	{
+		top = nuevo;
+	}
+	else
+	{
+		nuevo->setSiguiente(top);
+		top = nuevo;
+	}
 }
 
-int PilaProductos::buscarPorTipo()
+void PilaProductos::popProducto()
 {
-    return 0;
+	if (estaVacio())
+	{
+		std::cout << "LA PILA DE PRODUCTOS ESTA VACIA\n";
+	}
+	else
+	{
+		NodoProductos* aux = top;
+		top = top->getSiguiente();
+		delete aux;
+	}
+}
+
+Producto PilaProductos::buscarPorID(int id)
+{
+	NodoProductos* aux = top;
+	while (aux != nullptr) {
+		if (aux->getProducto().getId() == id) {
+			return aux->getProducto();
+		}
+		aux = aux->getSiguiente();
+	}
+	return Producto();
+}
+
+Producto PilaProductos::buscarPorTipo(std::string tipo)
+{
+	NodoProductos* aux = top;
+	while (aux != nullptr) {
+		if (aux->getProducto().getTipo() == tipo) {
+			return aux->getProducto();
+		}
+		aux = aux->getSiguiente();
+	}
+	return Producto();
+}
+
+
+Producto PilaProductos::obtenerCima() const
+{
+	if (!estaVacio())
+	{
+		return top->getProducto();
+
+	}
+	else
+	{
+		std::cerr << "LA PILA DE PRODUCTOS ESTA VACIA\n";
+		return Producto(-1, "", "", "");
+	}
+}
+
+int PilaProductos::contarProductos() const
+{
+	int contador = 0;
+	NodoProductos* actual = top;
+	while (actual != nullptr)
+	{
+		contador++;
+		actual = actual->getSiguiente();
+	}
+	return contador;
+}
+
+void PilaProductos::eliminarProductosNoReciclables()
+{
+
+	NodoProductos* actual = top;
+	NodoProductos* anterior = nullptr;
+
+	while (actual != nullptr) {
+		if (actual->getProducto().getEstado() != "reciclable")
+		{
+			if (actual == top)
+			{
+				top = top->getSiguiente();
+				delete actual;
+				actual = top;
+			}
+			else
+			{
+
+				anterior->setSiguiente(actual->getSiguiente());
+				delete actual;
+				actual = anterior->getSiguiente();
+			}
+		}
+		else
+		{
+			anterior = actual;
+			actual = actual->getSiguiente();
+		}
+	}
+
+}
+
+std::string PilaProductos::imprimirPila() const
+{
+	std::string respuesta;
+	if (estaVacio())
+	{
+		respuesta = "LA PILA DE PRODUCTOS ESTA VACIA\n";
+	}
+	else
+	{
+		NodoProductos* aux = top;
+		while (aux != nullptr)
+		{
+			respuesta += aux->toString() + "\n";
+			aux = aux->getSiguiente();
+		}
+	}
+	return respuesta;
 }

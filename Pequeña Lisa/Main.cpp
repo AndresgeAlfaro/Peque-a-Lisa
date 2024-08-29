@@ -1,8 +1,153 @@
+#include <thread>
+#include <chrono>
+#include "GestosPilaProductos.h"
 
-#include <iostream>
+using namespace std::this_thread;
+using namespace std::chrono_literals;
+using std::chrono::system_clock;
 
-int main()
-{
-    std::cout << "Prueba"<<std::endl;
-    //hola
+void menu() {
+    std::cout << "*** MENU PRINCIPAL ***\n"
+        << "[ 1 ] Ingresar producto\n"
+        << "[ 2 ] Buscar producto\n"
+        << "[ 3 ] Procesar productos \n"
+        << "[ 4 ] Distribuir productos\n"
+        << "[ 5 ] Eliminar productos no reciclables\n"
+        << "[ 6 ] Vista\n"
+        << "[ 7 ] Salir\n";
+}
+
+void vista() {
+    std::cout << "*** VISTA ***\n"
+        << "[ 1 ] Mostrar productos\n"
+        << "[ 2 ] Mostrar productos procesados\n"
+        << "[ 3 ] Mostrar lista de camiones\n"
+        << "[ 4 ] Mostrar lista de rutas\n"
+        << "[ 5 ] Salir";
+}
+
+int main() {
+
+    GestosPilaProductos gestor;
+
+    int opcion = 0;
+
+    while (opcion != 6) {
+        menu();
+        std::cout << "Seleccione la opcion que desea realizar: ";
+        std::cin >> opcion;
+
+        switch (opcion) {
+        case 1: {
+            int id;
+            std::string tipo, estado, descripcion;
+
+            std::cout << "Ingrese el ID del producto: ";
+            std::cin >> id;
+            std::cout << "Ingrese el tipo de producto (vidrio, metal, derivados de papel, plastico): ";
+            std::cin >> tipo;
+            std::cout << "Ingrese el estado del producto (reciclable/no reciclable): ";
+            std::cin >> estado;
+            std::cout << "Ingrese una descripción del producto: ";
+            std::cin >> descripcion;
+
+            Producto nuevoProducto(id, tipo, estado, descripcion);
+            gestor.agregarProducto(nuevoProducto);
+
+            std::cout << "PRODUCTO INGRESADO\n";
+            break;
+        }
+        case 2: {
+
+        }
+        case 3: {
+
+        }
+        case 4: {
+
+        }
+        case 5: {
+            std::cout << "Eliminando no reciclables...\n";
+            gestor.eliminarProductosNoReciclables();
+            std::cout << "\n";
+            sleep_for(3000ms);
+            std::cout << "PRODUCTOS ELIMINADOS\n";
+        }
+        case 6: {
+            int opcionVista = 0;
+            while (opcionVista != 5) {
+                vista();
+                std::cout << "Seleccione la opcion que desea realizar: ";
+                std::cin >> opcion;
+
+                switch (opcionVista) {
+                case 1: {
+                    std::cout << "*** PRODUCTOS ***\n\n";
+                    gestor.imprimirTodasLasPilas();
+                    std::cout << "\n";
+                    gestor.contarProductosPorPila();
+                    std::cout << "\n";
+                    std::cout << "Cantidad total de productos: " << gestor.contarTotalProductos() << std::endl;
+                    std::cout << "\n";
+                }
+                case 2: {
+
+                }
+                case 3: {
+
+                }
+                case 4: {
+
+                }
+                case 5: {
+                    std::cout << "Saliendo... \n";
+                    break;
+                }
+                default:
+                    std::cout << "Opcion invalida!\n";
+                }
+
+            }
+        }
+        case 7: {
+            std::cout << "Saliendo... \n";
+            break;
+        }
+        default:
+            std::cout << "Opcion invalida!\n";
+        }
+
+    }
+
+   /* Producto p1(1, "vidrio", "reciclable", "Botella de vidrio");
+    Producto p2(2, "metal", "no reciclable", "Lata oxidada");
+    Producto p3(3, "plastico", "reciclable", "Envase de plastico");
+    Producto p4(4, "derivados de papel", "reciclable", "Caja de carton");
+    Producto p5(6, "metal", "reciclable", "Lata de Atun");
+
+    gestor.agregarProducto(p1);
+    gestor.agregarProducto(p2);
+    gestor.agregarProducto(p3);
+    gestor.agregarProducto(p4);
+    gestor.agregarProducto(p5);
+
+    gestor.imprimirTodasLasPilas();
+    std::cout << "\n";
+    gestor.contarProductosPorPila();
+    std::cout << "\n";
+    std::cout << "Cantidad total de productos: " << gestor.contarTotalProductos() << std::endl;
+    std::cout << "\n";
+
+    std::cout << "Eliminando no reciclables\n";
+    gestor.eliminarProductosNoReciclables();
+    std::cout << "\n";
+
+    gestor.imprimirTodasLasPilas();
+    std::cout << "\n";
+
+    std::cout << "Cantidad total de productos: " << gestor.contarTotalProductos() << std::endl;
+    std::cout << "\n";*/
+
+    return 0;
+
 }
