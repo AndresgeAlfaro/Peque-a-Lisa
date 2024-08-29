@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <ctime>
 
 #endif // !INCLUDE_H
 
