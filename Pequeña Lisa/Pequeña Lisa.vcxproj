@@ -130,6 +130,7 @@
     <ClCompile Include="ColaProductoResciclado.cpp" />
     <ClCompile Include="GestosPilaProductos.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="NodoCola.cpp" />
     <ClCompile Include="NodoProductos.cpp" />
     <ClCompile Include="PilaProductos.cpp" />
     <ClCompile Include="Producto.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="ColaProductoResciclado.h" />
     <ClInclude Include="GestosPilaProductos.h" />
     <ClInclude Include="Includes.h" />
+    <ClInclude Include="NodoCola.h" />
     <ClInclude Include="NodoProductos.h" />
     <ClInclude Include="PilaProductos.h" />
     <ClInclude Include="Producto.h" />

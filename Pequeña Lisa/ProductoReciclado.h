@@ -1,25 +1,37 @@
 #ifndef PRODUCTORECICLADO_H
-#include "Producto.h"
+#include "Includes.h"
+#define _CRT_SECURE_NO_WARNINGS //por si hay errores
 
-class ProductoReciclado:public Producto
-{
+class ProductoReciclado{
 
 public:
 
-	ProductoReciclado(int,std::string,std::string,std::string,std::string,std::string);
-	~ProductoReciclado();
+    ProductoReciclado(int id, const std::string& tipo, const std::string& descripcion, std::time_t fechaReciclaje);
 
-	std::string getFechaReciclaje()const;
-	std::string getDescripcionReciclado() const;
+    int getId() const;
+    std::string getTipo() const;
+    std::string getDescripcion() const;
+    std::time_t getFechaReciclaje() const;
 
-	void setFechaReciclaje(const std::string& );
-	void setDescripcionReciclado(const std::string& );
-	std::string toString();
+    std::string toString() const;
+
 
 private:
 
-	std::string fechaReciclaje;
-	std::string descripcionReciclado;
+    int id;
+    std::string tipo;
+    std::string descripcion;
+    std::time_t fechaReciclaje;
+
+    std::string convertirFecha(std::time_t fecha)const{
+        char buffer[20];
+        struct tm timeinfo;
+
+        localtime_s(&timeinfo, &fecha);
+
+        strftime(buffer, sizeof(buffer), "%Y-%m-%d", &timeinfo);
+        return std::string(buffer);
+    }
 
 };
 

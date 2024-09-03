@@ -1,14 +1,6 @@
 #ifndef COLAPRODUCTORECICLADO_H
 #define COLAPRODUCTORECICLADO_H
-#include"ProductoReciclado.h"
-
-struct Nodo {
-
-    ProductoReciclado producto;
-    Nodo* siguiente;
-    Nodo(ProductoReciclado p) : producto(p), siguiente(nullptr) {}
-
-};
+#include"NodoCola.h"
 
 class ColaProductoResciclado
 {
@@ -18,19 +10,18 @@ public:
     ColaProductoResciclado();
     ~ColaProductoResciclado();
 
-    bool estaVacio();
-    void enqueue();
-    void dequeue();
+    bool estaVacio()const;
+    void encolar(const ProductoReciclado&);
+    void desencolar();
 
-    ProductoReciclado frenteProducto() const;
-    void buscarPorRangoFecha(const std::string&, const std::string&) const;
+    void buscarPorFecha(const std::string&, const std::string&) const;
 
     std::string imprimirCola() const;
 
 private:
 
-    Nodo* frente;
-    Nodo* final;
+    NodoCola* frente;
+    NodoCola* final;
 
 };
 
