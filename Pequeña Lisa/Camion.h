@@ -1,22 +1,24 @@
 #ifndef CAMION_H
 #define CAMION_H
 
-#include <string>
+#include <sstream>
 #include "ProductoReciclado.h"
 #include "ListaProductoReciclado.h"
 
 class Camion{
-public:
+private:
 	int idCamion;
 	std::string conductor;
 	ListaProductoReciclado productos;
 
-private:
+public:
 	Camion(int, std::string);
 	virtual ~Camion();
+	int getId();
 	void agregarProducto(ProductoReciclado*);
 	void eliminarProducto(ProductoReciclado*);
 	ListaProductoReciclado listarProductos();
+	std::string toString();
 
 };
 

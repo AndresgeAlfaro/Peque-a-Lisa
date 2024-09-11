@@ -5,9 +5,10 @@
 
 class NodoCamion{
 public:
+	NodoCamion(Camion*);
 	Camion* getData();
 	NodoCamion* getNext();
-	void setSiguiente(NodoCamion*);
+	void setNext(NodoCamion*);
 
 private:
 	Camion* data;
