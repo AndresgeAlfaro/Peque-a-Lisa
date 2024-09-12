@@ -1,6 +1,7 @@
 #include <thread>
 #include <chrono>
 #include "GestosPilaProductos.h"
+#include "Camion.h"
 
 using namespace std::this_thread;
 using namespace std::chrono_literals;
@@ -72,10 +73,45 @@ int main() {
             break;
         }
         case 3: {
+            std::string tipo;
+            std::cout << "Ingrese el tipo de producto a procesar (vidrio, metal, papel, plastico): ";
+            std::cin >> tipo;
 
+            PilaProductos& pila = gestor.obtenerPilaPorTipo(tipo);
+            
+            if (pila.estaVacio()) {
+                std::cout << "No hay productos de tipo " << tipo << " por procesar\n";
+            }
+            else {
+                Producto* producto = pila.obtenerCima();
+                pila.popProducto();
+
+                std::string fechaReciclado;
+                std::string descripcionReciclado;
+                std::cout << "Ingrese la fecha de reciclado (dd/mm/yyyy): ";
+                std::cin >> fechaReciclado;
+                std::cout << "Ingrese la descripción del producto reciclado: ";
+                std::cin >> descripcionReciclado;
+
+                producto->setDescripcion(descripcionReciclado);
+
+                //pendiente por encolar
+
+                std::cout << "Producto procesado y encolado exitosamente.\n";
+            }
         }
         case 4: {
+            int idCamion;
+            std::string conductor;
 
+            std::cout << "Ingrese el ID del camion: ";
+            std::cin >> idCamion;
+            std::cout << "Ingrese el nombre del conductor: ";
+            std::cin >> conductor;
+
+            Camion camion(idCamion, conductor);
+
+            //pendiente cargar productos de la cola
         }
         case 5: {
             std::cout << "Eliminando no reciclables...\n";
