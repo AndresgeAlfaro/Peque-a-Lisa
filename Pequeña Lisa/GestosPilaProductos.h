@@ -12,7 +12,7 @@ public:
     ~GestosPilaProductos();
 
     void agregarProducto(Producto);
-    Producto buscarProductoPorID(int);
+    Producto* buscarProductoPorID(int);
     PilaProductos& obtenerPilaPorTipo(const std::string&);
     void eliminarProductosNoReciclables();
     void contarProductosPorPila() const;

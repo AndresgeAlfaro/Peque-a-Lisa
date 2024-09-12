@@ -49,7 +49,7 @@ void Producto::setDescripcion(std::string descripcion)
     this->descripcion = descripcion;
 }
 
-std::string Producto::toString() const
-{
+std::string Producto::toString() const{
+    
     return "PRODUCTO{" + std::to_string(id) + ", " + tipo + ", " + estado + ", " + descripcion + " }";
 }

@@ -7,12 +7,12 @@ class NodoProductos {
 
 public:
 
-	NodoProductos(Producto);
+	NodoProductos(Producto*);
 	~NodoProductos();
 
-	Producto getProducto()const;
+	Producto* getProducto()const;
 
-	void setProducto(Producto);
+	void setProducto(Producto*);
 
 	NodoProductos* getSiguiente()const;
 	void setSiguiente(NodoProductos*);
@@ -21,7 +21,7 @@ public:
 
 private:
 
-	Producto producto;
+	Producto* producto;
 	NodoProductos* siguiente;
 
 };

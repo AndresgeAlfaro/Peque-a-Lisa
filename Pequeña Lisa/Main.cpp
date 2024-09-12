@@ -58,7 +58,18 @@ int main() {
             break;
         }
         case 2: {
+            int id;
+            std::cout << "Ingrese el ID del producto que desea buscar: ";
+            std::cin >> id;
+            Producto* aux = gestor.buscarProductoPorID(id);
 
+            if (aux->getId() != 0) {
+                std::cout << "Producto encontrado: " << aux->toString() << std::endl;
+            }
+            else {
+                std::cout << "El producto con el ID " << id << "no fue encontrado\n";
+            }
+            break;
         }
         case 3: {
 

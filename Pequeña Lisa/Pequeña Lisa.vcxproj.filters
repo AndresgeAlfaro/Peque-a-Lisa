@@ -57,13 +57,13 @@
     <ClCompile Include="NodoRuta.cpp">
       <Filter>Archivos de origen\Contenedores</Filter>
     </ClCompile>
-    <ClCompile Include="RutaDistribucion.cpp">
-      <Filter>Archivos de origen\Contenedores</Filter>
-    </ClCompile>
     <ClCompile Include="GestosPilaProductos.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="NodoProductos.cpp">
+      <Filter>Archivos de origen\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="RutaDistribucion.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

@@ -14,7 +14,7 @@ bool PilaProductos::estaVacio()const
 	return top == nullptr;
 }
 
-void PilaProductos::pushProducto(Producto producto)
+void PilaProductos::pushProducto(Producto* producto)
 {
 	NodoProductos* nuevo = new NodoProductos(producto);
 	if (estaVacio())
@@ -42,32 +42,32 @@ void PilaProductos::popProducto()
 	}
 }
 
-Producto PilaProductos::buscarPorID(int id)
+Producto* PilaProductos::buscarPorID(int id)
 {
 	NodoProductos* aux = top;
 	while (aux != nullptr) {
-		if (aux->getProducto().getId() == id) {
+		if (aux->getProducto()->getId() == id) {
 			return aux->getProducto();
 		}
 		aux = aux->getSiguiente();
 	}
-	return Producto();
+	return nullptr;
 }
 
-Producto PilaProductos::buscarPorTipo(std::string tipo)
+Producto* PilaProductos::buscarPorTipo(std::string tipo)
 {
 	NodoProductos* aux = top;
 	while (aux != nullptr) {
-		if (aux->getProducto().getTipo() == tipo) {
+		if (aux->getProducto()->getTipo() == tipo) {
 			return aux->getProducto();
 		}
 		aux = aux->getSiguiente();
 	}
-	return Producto();
+	return nullptr;
 }
 
 
-Producto PilaProductos::obtenerCima() const
+Producto* PilaProductos::obtenerCima() const
 {
 	if (!estaVacio())
 	{
@@ -77,7 +77,8 @@ Producto PilaProductos::obtenerCima() const
 	else
 	{
 		std::cerr << "LA PILA DE PRODUCTOS ESTA VACIA\n";
-		return Producto(-1, "", "", "");
+		//return Producto(-1, "", "", "");
+		return nullptr;
 	}
 }
 
@@ -100,7 +101,7 @@ void PilaProductos::eliminarProductosNoReciclables()
 	NodoProductos* anterior = nullptr;
 
 	while (actual != nullptr) {
-		if (actual->getProducto().getEstado() != "reciclable")
+		if (actual->getProducto()->getEstado() != "reciclable")
 		{
 			if (actual == top)
 			{

@@ -11,13 +11,13 @@ public:
 	~PilaProductos();
 
 	bool estaVacio()const;
-	void pushProducto(Producto);
+	void pushProducto(Producto*);
 	void popProducto();
 
-	Producto buscarPorID(int);
-	Producto buscarPorTipo(std::string);
+	Producto* buscarPorID(int);
+	Producto* buscarPorTipo(std::string);
 
-	Producto obtenerCima()const;
+	Producto* obtenerCima()const;
 	int contarProductos()const;
 
 	void eliminarProductosNoReciclables();

@@ -33,9 +33,9 @@ void GestosPilaProductos::agregarProducto(Producto producto)
 
 }
 
-Producto GestosPilaProductos::buscarProductoPorID(int id)
+Producto* GestosPilaProductos::buscarProductoPorID(int id)
 {
-    Producto producto = pilaVidrio.buscarPorID(id);
+    Producto* producto = pilaVidrio.buscarPorID(id);
     if (producto.getId() != 0)
         return producto;
 
