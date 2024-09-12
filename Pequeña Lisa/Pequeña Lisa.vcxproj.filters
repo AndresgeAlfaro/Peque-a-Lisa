@@ -45,9 +45,6 @@
     <ClCompile Include="ListaRutaDistribucion.cpp">
       <Filter>Archivos de origen\Contenedores</Filter>
     </ClCompile>
-    <ClCompile Include="NodoProducto.cpp">
-      <Filter>Archivos de origen\Contenedores</Filter>
-    </ClCompile>
     <ClCompile Include="NodoProductoReciclado.cpp">
       <Filter>Archivos de origen\Contenedores</Filter>
     </ClCompile>
@@ -62,6 +59,12 @@
     </ClCompile>
     <ClCompile Include="RutaDistribucion.cpp">
       <Filter>Archivos de origen\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="GestosPilaProductos.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="NodoProductos.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,9 +86,6 @@
     <ClInclude Include="ListaRutaDistribucion.h">
       <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
-    <ClInclude Include="NodoProducto.h">
-      <Filter>Archivos de encabezado\Contenedores</Filter>
-    </ClInclude>
     <ClInclude Include="NodoProductoReciclado.h">
       <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
@@ -101,7 +101,13 @@
     <ClInclude Include="NodoRuta.h">
       <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
+    <ClInclude Include="GestosPilaProductos.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="RutaDistribucion.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoProductos.h">
       <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
   </ItemGroup>

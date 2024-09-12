@@ -5,13 +5,17 @@
 
 class NodoRuta{
 public:
+	NodoRuta(RutaDistribucion*);
 	RutaDistribucion* getData();
 	NodoRuta* getNext();
-	void setSiguiente(NodoRuta*);
+	NodoRuta* getPrev();
+	void setNext(NodoRuta*);
+	void setPrev(NodoRuta*);
 
 private:
 	RutaDistribucion* data;
 	NodoRuta* next;
+	NodoRuta* prev;
 };
 
 #endif
