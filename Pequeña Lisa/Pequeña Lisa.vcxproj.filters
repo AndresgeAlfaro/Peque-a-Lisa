@@ -21,25 +21,22 @@
     <ClCompile Include="Producto.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ProductoReciclado.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="PilaProductos.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Camion.cpp">
+    <ClCompile Include="NodoProductos.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="RutaDistribucion.cpp">
+    <ClCompile Include="GestosPilaProductos.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ColaProcesamiento.cpp">
+    <ClCompile Include="ProductoReciclado.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ListaRutaDistribucion.cpp">
+    <ClCompile Include="ColaProductoResciclado.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ListaCamion.cpp">
+    <ClCompile Include="NodoCola.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,25 +44,25 @@
     <ClInclude Include="Producto.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ProductoReciclado.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="PilaProductos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Camion.h">
+    <ClInclude Include="NodoProductos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="RutaDistribucion.h">
+    <ClInclude Include="Includes.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ColaProcesamiento.h">
+    <ClInclude Include="GestosPilaProductos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ListaRutaDistribucion.h">
+    <ClInclude Include="ProductoReciclado.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ListaCamion.h">
+    <ClInclude Include="ColaProductoResciclado.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoCola.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
