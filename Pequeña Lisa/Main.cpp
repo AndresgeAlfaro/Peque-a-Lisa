@@ -33,7 +33,7 @@ int main() {
 
     int opcion = 0;
 
-    while (opcion != 6) {
+    while (opcion != 7) {
         menu();
         std::cout << "Seleccione la opcion que desea realizar: ";
         std::cin >> opcion;
@@ -52,7 +52,7 @@ int main() {
             std::cout << "Ingrese una descripción del producto: ";
             std::cin >> descripcion;
 
-            Producto nuevoProducto(id, tipo, estado, descripcion);
+            Producto* nuevoProducto = new Producto(id, tipo, estado, descripcion);
             gestor.agregarProducto(nuevoProducto);
 
             std::cout << "PRODUCTO INGRESADO\n";

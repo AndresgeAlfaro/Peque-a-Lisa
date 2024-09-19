@@ -11,7 +11,7 @@ public:
     GestosPilaProductos();
     ~GestosPilaProductos();
 
-    void agregarProducto(Producto);
+    void agregarProducto(Producto*);
     Producto* buscarProductoPorID(int);
     PilaProductos& obtenerPilaPorTipo(const std::string&);
     void eliminarProductosNoReciclables();

@@ -7,28 +7,28 @@ GestosPilaProductos::~GestosPilaProductos()
 {
 }
 
-void GestosPilaProductos::agregarProducto(Producto producto)
+void GestosPilaProductos::agregarProducto(Producto* producto)
 {
 
-    if (producto.getTipo() == "vidrio")
+    if (producto->getTipo() == "vidrio")
     {
         pilaVidrio.pushProducto(producto);
     }
-    else if (producto.getTipo() == "metal")
+    else if (producto->getTipo() == "metal")
     {
         pilaMetal.pushProducto(producto);
     }
-    else if (producto.getTipo() == "derivados de papel")
+    else if (producto->getTipo() == "derivados de papel")
     {
         pilaDerivadosPapel.pushProducto(producto);
     }
-    else if (producto.getTipo() == "plastico")
+    else if (producto->getTipo() == "plastico")
     {
         pilaPlastico.pushProducto(producto);
     }
     else
     {
-        std::cout << "Tipo de producto desconocido: " << producto.getTipo() << std::endl;
+        std::cout << "Tipo de producto desconocido: " << producto->getTipo() << std::endl;
     }
 
 }
@@ -36,22 +36,22 @@ void GestosPilaProductos::agregarProducto(Producto producto)
 Producto* GestosPilaProductos::buscarProductoPorID(int id)
 {
     Producto* producto = pilaVidrio.buscarPorID(id);
-    if (producto.getId() != 0)
+    if (producto->getId() != 0)
         return producto;
 
     producto = pilaMetal.buscarPorID(id);
-    if (producto.getId() != 0)
+    if (producto->getId() != 0)
         return producto;
 
     producto = pilaDerivadosPapel.buscarPorID(id);
-    if (producto.getId() != 0)
+    if (producto->getId() != 0)
         return producto;
 
     producto = pilaPlastico.buscarPorID(id);
-    if (producto.getId() != 0)
+    if (producto->getId() != 0)
         return producto;
 
-    return Producto();
+    return new Producto();
 }
 
 PilaProductos& GestosPilaProductos::obtenerPilaPorTipo(const std::string& tipo)
