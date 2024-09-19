@@ -15,3 +15,7 @@ NodoCamion* NodoCamion::getNext()
 void NodoCamion::setNext(NodoCamion* _next){
     this->next = next;
 }
+
+void NodoCamion::setData(Camion* _data){
+    this->data = _data;
+}

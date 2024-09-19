@@ -21,3 +21,7 @@ void NodoRuta::setNext(NodoRuta* _next){
 void NodoRuta::setPrev(NodoRuta* _prev){
     this->prev = prev;
 }
+
+void NodoRuta::setData(RutaDistribucion* _data){
+    this->data = _data;
+}

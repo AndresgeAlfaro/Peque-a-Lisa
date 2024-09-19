@@ -12,6 +12,10 @@ void RutaDistribucion::ordenarQuickSort()
 {
 }
 
+int RutaDistribucion::getId(){
+	return idUbicacion;
+}
+
 std::string RutaDistribucion::toString(){
 	std::stringstream s;
 	s << "----------------------------\n"

@@ -19,6 +19,14 @@ public:
 private:
 	NodoRuta* head;
 
+	NodoRuta* dividirLista(NodoRuta*);
+	NodoRuta* fusionarListas(NodoRuta*, NodoRuta*);
+	NodoRuta* mergeSort(NodoRuta*);
+
+	NodoRuta* particionar(NodoRuta*, NodoRuta*);
+	void quickSort(NodoRuta*, NodoRuta*);
+	void intercambiar(NodoRuta*, NodoRuta*);
+
 };
 
 #endif

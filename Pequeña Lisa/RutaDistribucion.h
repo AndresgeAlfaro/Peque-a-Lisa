@@ -9,6 +9,7 @@ public:
 	void agregarCamion(Camion*);
 	void ordenarMergeSort();
 	void ordenarQuickSort();
+	int getId();
 	std::string toString();
 
 private:

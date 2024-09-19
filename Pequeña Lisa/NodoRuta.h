@@ -11,6 +11,7 @@ public:
 	NodoRuta* getPrev();
 	void setNext(NodoRuta*);
 	void setPrev(NodoRuta*);
+	void setData(RutaDistribucion*);
 
 private:
 	RutaDistribucion* data;

@@ -9,6 +9,7 @@ public:
 	Camion* getData();
 	NodoCamion* getNext();
 	void setNext(NodoCamion*);
+	void setData(Camion*);
 
 private:
 	Camion* data;

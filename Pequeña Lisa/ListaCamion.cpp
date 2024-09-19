@@ -28,15 +28,76 @@ void ListaCamion::agregarCamion(Camion* nuevo){
 }
 
 void ListaCamion::ordenarBubbleSort(){
+	if (head == nullptr) return;
 
+	bool swapped;
+	NodoCamion* ptr1;
+	NodoCamion* lptr = nullptr;
+
+	do {
+		swapped = false;
+		ptr1 = head;
+
+		while (ptr1->getNext() != lptr) {
+			if (ptr1->getData()->getId() > ptr1->getNext()->getData()->getId()) {
+				Camion* temp = ptr1->getData();
+				ptr1->setData(ptr1->getNext()->getData());
+				ptr1->getNext()->setData(temp);
+				swapped = true;
+			}
+			ptr1 = ptr1->getNext();
+		}
+		lptr = ptr1;
+	} while (swapped);
 }
 
-void ListaCamion::ordenarInsertionSort()
-{
+void ListaCamion::ordenarInsertionSort(){
+	if (head == nullptr) return;
+
+	NodoCamion* sorted = nullptr;
+
+	NodoCamion* current = head;
+	while (current != nullptr) {
+		NodoCamion* next = current->getNext();
+
+		if (sorted == nullptr || sorted->getData()->getId() >= current->getData()->getId()) {
+			current->setNext(sorted);
+			sorted = current;
+		}
+		else {
+			NodoCamion* temp = sorted;
+			while (temp->getNext() != nullptr && temp->getNext()->getData()->getId() < current->getData()->getId()) {
+				temp = temp->getNext();
+			}
+			current->setNext(temp->getNext());
+			temp->setNext(current);
+		}
+		current = next;
+	}
+	head = sorted;
 }
 
-void ListaCamion::ordenarSelectionSort()
-{
+void ListaCamion::ordenarSelectionSort(){
+	if (head == nullptr) return;
+
+	NodoCamion* temp = head;
+
+	while (temp != nullptr) {
+		NodoCamion* min = temp;
+		NodoCamion* r = temp->getNext();
+
+		while (r != nullptr) {
+			if (min->getData()->getId() > r->getData()->getId()) {
+				min = r;
+			}
+			r = r->getNext();
+		}
+
+		Camion* x = temp->getData();
+		temp->setData(min->getData());
+		min->setData(x);
+		temp = temp->getNext();
+	}
 }
 
 Camion* ListaCamion::buscarPorId(int _id){
