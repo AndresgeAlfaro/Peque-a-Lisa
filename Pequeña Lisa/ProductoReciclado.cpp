@@ -1,5 +1,5 @@
 #include "ProductoReciclado.h"
-
+//hola
 ProductoReciclado::ProductoReciclado(int id, const std::string& tipo, const std::string& descripcion, std::time_t fechaReciclaje): id(id), tipo(tipo), descripcion(descripcion), fechaReciclaje(fechaReciclaje) {}
 
 int ProductoReciclado::getId() const
