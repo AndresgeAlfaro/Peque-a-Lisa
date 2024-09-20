@@ -1,7 +1,6 @@
 #ifndef PRODUCTORECICLADO_H
 #define PRODUCTORECICLADO_H
 
-#include <ctime>
 #include "Producto.h"
 
 class ProductoReciclado: public Producto{

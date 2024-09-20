@@ -5,9 +5,13 @@
 
 class NodoProductoReciclado{
 public:
+
+	NodoProductoReciclado(ProductoReciclado*);
+	~NodoProductoReciclado();
+
 	ProductoReciclado* getData();
 	NodoProductoReciclado* getNext();
-	void setNext();
+	void setNext(NodoProductoReciclado*);
 
 private:
 	ProductoReciclado* data;

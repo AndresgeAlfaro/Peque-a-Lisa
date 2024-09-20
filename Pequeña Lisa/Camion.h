@@ -1,7 +1,6 @@
 #ifndef CAMION_H
 #define CAMION_H
 
-#include <sstream>
 #include "ProductoReciclado.h"
 #include "ListaProductoReciclado.h"
 

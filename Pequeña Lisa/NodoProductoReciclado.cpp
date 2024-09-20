@@ -1,15 +1,18 @@
 #include "NodoProductoReciclado.h"
 
-ProductoReciclado* NodoProductoReciclado::getData()
-{
-    return nullptr;
+NodoProductoReciclado::NodoProductoReciclado(ProductoReciclado* data)
+    : data(data), next(nullptr) {}
+
+NodoProductoReciclado::~NodoProductoReciclado(){}
+
+ProductoReciclado* NodoProductoReciclado::getData() {
+    return data;
 }
 
-NodoProductoReciclado* NodoProductoReciclado::getNext()
-{
-    return nullptr;
+NodoProductoReciclado* NodoProductoReciclado::getNext() {
+    return next;
 }
 
-void NodoProductoReciclado::setNext()
-{
+void NodoProductoReciclado::setNext(NodoProductoReciclado* nextNode) {
+    next = nextNode;
 }

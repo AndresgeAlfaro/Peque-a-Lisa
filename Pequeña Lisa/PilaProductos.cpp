@@ -77,7 +77,6 @@ Producto* PilaProductos::obtenerCima() const
 	else
 	{
 		std::cerr << "LA PILA DE PRODUCTOS ESTA VACIA\n";
-		//return Producto(-1, "", "", "");
 		return nullptr;
 	}
 }

@@ -12,11 +12,15 @@ std::string ProductoReciclado::getDescripcion(){
     return this->DescripcionR;
 }
 
-/*std::string ProductoReciclado::toString() {
+std::string ProductoReciclado::toString() {
     std::stringstream ss;
+    char buffer[26];
+
+    ctime_s(buffer, sizeof(buffer), &fechaReciclaje);
 
     ss << "***PRODUCTO RECICLADO***"
-        << "\nFecha de reciclaje: " << ctime(&fechaReciclaje)
+        << "\nFecha de reciclaje: " << buffer
         << "\nDescripcion: " << DescripcionR;
     return ss.str();
-}*/
+}
+

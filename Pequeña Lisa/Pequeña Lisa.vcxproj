@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camion.cpp" />
+    <ClCompile Include="InterfazUsuario.cpp" />
     <ClCompile Include="ColaProcesamiento.cpp" />
     <ClCompile Include="GestosPilaProductos.cpp" />
     <ClCompile Include="ListaCamion.cpp" />
@@ -145,8 +146,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camion.h" />
+    <ClInclude Include="InterfazUsuario.h" />
     <ClInclude Include="ColaProcesamiento.h" />
     <ClInclude Include="GestosPilaProductos.h" />
+    <ClInclude Include="Includes.h" />
     <ClInclude Include="ListaCamion.h" />
     <ClInclude Include="ListaProductoReciclado.h" />
     <ClInclude Include="ListaRutaDistribucion.h" />
