@@ -11,6 +11,10 @@ ListaCamion::~ListaCamion(){
     }
 }
 
+NodoCamion* ListaCamion::getHead(){
+	return head;
+}
+
 void ListaCamion::agregarCamion(Camion* nuevo){
 	NodoCamion* newNodo = new NodoCamion(nuevo); // Nuevo nodo a insertar 
 	if (head == nullptr) { // Caso: La lista esta vacia

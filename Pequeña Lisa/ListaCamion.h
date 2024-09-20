@@ -9,6 +9,7 @@ class ListaCamion{
 public:
 	ListaCamion();
 	~ListaCamion();
+	NodoCamion* getHead();
 	void agregarCamion(Camion*);
 	void ordenarBubbleSort();
 	void ordenarInsertionSort();

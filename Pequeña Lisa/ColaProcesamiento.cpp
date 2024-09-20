@@ -43,3 +43,28 @@ ListaProductoReciclado ColaProcesamiento::buscarPorFecha(time_t inicio, time_t f
     return listaResultados;
 }
 
+bool ColaProcesamiento::estaVacia(){
+    return frente == nullptr;
+}
+
+std::string ColaProcesamiento::toString(){
+    std::stringstream s;
+    NodoProductoReciclado* actual = frente;
+    int cont = 1;
+
+    if (!actual) {
+        s << "La cola de productos procesados está vacía\n";
+        return s.str();
+    }
+
+    while (actual) {
+        ProductoReciclado* producto = actual->getData();
+        s << "Producto " << cont << "\n"
+            << producto->toString() << "\n";
+        actual = actual->getNext();
+        cont++;
+    }
+
+    return s.str();
+}
+

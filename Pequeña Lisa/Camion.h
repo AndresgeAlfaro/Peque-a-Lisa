@@ -15,8 +15,7 @@ public:
 	virtual ~Camion();
 	int getId();
 	void agregarProducto(ProductoReciclado*);
-	void eliminarProducto(ProductoReciclado*);
-	ListaProductoReciclado listarProductos();
+	std::string mostrarProductosCamion();
 	std::string toString();
 
 };

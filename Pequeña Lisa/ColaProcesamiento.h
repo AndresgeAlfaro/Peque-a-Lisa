@@ -14,6 +14,8 @@ public:
 	void agregar(ProductoReciclado*);
 	ProductoReciclado* procesarProducto();
 	ListaProductoReciclado buscarPorFecha(time_t, time_t);
+	bool estaVacia();
+	std::string toString();
 
 private:
 	NodoProductoReciclado* frente;

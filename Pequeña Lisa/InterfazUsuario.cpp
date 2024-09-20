@@ -63,45 +63,88 @@ void InterfazUsuario::manejarOpcion(int opcion) {
             break;
         }
         case 3: {
-            std::string tipo;
-            std::cout << "Ingrese el tipo de producto a procesar (vidrio, metal, papel, plastico): ";
-            std::cin >> tipo;
+            try {
+                std::string tipo;
+                std::cout << "Ingrese el tipo de producto a procesar (vidrio, metal, papel, plastico): ";
+                std::cin >> tipo;
 
-            PilaProductos& pila = gestor.obtenerPilaPorTipo(tipo);
+                PilaProductos& pila = gestor.obtenerPilaPorTipo(tipo);
 
-            if (pila.estaVacio()) {
-                std::cout << "No hay productos de tipo " << tipo << " por procesar\n";
+                if (pila.estaVacio()) {
+                    std::cout << "No hay productos de tipo " << tipo << " por procesar\n";
+                }
+                else {
+                    Producto* producto = pila.obtenerCima();
+                    pila.popProducto();
+
+                    std::string fechaReciclado, descripcionReciclado;
+                    std::cout << "Ingrese la fecha de reciclado (dd/mm/yyyy): ";
+                    std::cin >> fechaReciclado;
+
+                    if (!fechaValida(fechaReciclado)) {
+                        throw std::invalid_argument("Fecha inválida. Debe estar en formato dd/mm/yyyy.");
+                    }
+
+                    std::cout << "Ingrese la descripción del producto reciclado: ";
+                    std::cin >> descripcionReciclado;
+
+                    time_t fechaRecicladoC = convertirFecha(fechaReciclado);
+
+                    ProductoReciclado* preductoReciclado = new ProductoReciclado(producto->getId(), producto->getTipo(), producto->getEstado(), producto->getDescripcion(), fechaRecicladoC, descripcionReciclado);
+                    cola.agregar(preductoReciclado);
+
+                    std::cout << "Producto procesado y encolado exitosamente.\n";
+                }
             }
-            else {
-                Producto* producto = pila.obtenerCima();
-                pila.popProducto();
-
-                std::string fechaReciclado, descripcionReciclado;
-                std::cout << "Ingrese la fecha de reciclado (dd/mm/yyyy): ";
-                std::cin >> fechaReciclado;
-                std::cout << "Ingrese la descripción del producto reciclado: ";
-                std::cin >> descripcionReciclado;
-
-                producto->setDescripcion(descripcionReciclado);
-                // pendiente por encolar
-
-                std::cout << "Producto procesado y encolado exitosamente.\n";
+            catch (const std::invalid_argument& e) {
+                std::cout << "Error: " << e.what() << "\n";
+            }
+            catch (...) {
+                std::cout << "Error al procesar el producto!\n";
             }
             break;
         }
         case 4: {
             int idCamion;
             std::string conductor;
+            Camion* camion = nullptr;
 
             std::cout << "Ingrese el ID del camion: ";
             std::cin >> idCamion;
             if (std::cin.fail()) throw std::invalid_argument("ID de camion invalido");
 
+            bool flag = false;
+            NodoCamion* actual = camiones.getHead();
+            while (actual != nullptr) {
+                camion = actual->getData();
+                if (camion->getId() == idCamion) { //verificar si el camion ya existe
+                    flag = true;
+                    break;
+                }
+                actual = actual->getNext();
+            }
+
             std::cout << "Ingrese el nombre del conductor: ";
             std::cin >> conductor;
 
-            Camion camion(idCamion, conductor);
-            // pendiente cargar productos de la cola
+            if (!flag) {
+                camion = new Camion(idCamion, conductor);
+                camiones.agregarCamion(camion);
+            }
+
+            int cont = 0;
+            const int capacidad = 50; //capacidad default de los camiones
+
+            while (!cola.estaVacia() && cont < capacidad) {
+                ProductoReciclado* productoR = cola.procesarProducto();
+                camion->agregarProducto(productoR);
+                cont;
+            }
+
+            std::cout << "Se han cargado " << cont << " productos con en el camion con ID " << idCamion << "\n";
+            if (cont == capacidad && cola.estaVacia())
+                std::cout << "El camion ha alcanzado su capacidad máxima\n";
+
             break;
         }
         case 5: {
@@ -132,6 +175,7 @@ void InterfazUsuario::manejarOpcion(int opcion) {
     catch (const std::exception& e) {
         std::cout << "Error: " << e.what() << std::endl;
     }
+
 }
 
 void InterfazUsuario::manejarVista(int opcionVista) {
@@ -144,11 +188,26 @@ void InterfazUsuario::manejarVista(int opcionVista) {
             break;
         }
         case 2: {
-            // Implementar mostrar productos procesados
+            std::cout << "*** PRODUCTOS PROCESADOS ***\n\n";
+            cola.toString();
+            
             break;
         }
         case 3: {
             // Implementar mostrar lista de camiones
+            std::cout << "*** CAMIONES ***\n\n";
+            camiones.imprimirLista();
+            std::cout << "\n\n*** ORDENAMIENTOS ***\n\n"
+                << "BUBBLE SORT\n";
+            camiones.ordenarBubbleSort();
+            camiones.imprimirLista();
+            std::cout << "\n\nINSERTION SORT\n";
+            camiones.ordenarInsertionSort();
+            camiones.imprimirLista();
+            std::cout << "\n\nSELECTION SORT\n";
+            camiones.ordenarSelectionSort();
+            camiones.imprimirLista();
+
             break;
         }
         case 4: {
@@ -172,6 +231,44 @@ void InterfazUsuario::manejarVista(int opcionVista) {
             opcionVista = 0;
         }
     }
+}
+
+bool InterfazUsuario::fechaValida(const std::string& fecha){
+    int dia, mes, anio;
+    char delimitador1, delimitador2;
+
+    std::istringstream fechaStream(fecha);
+    if (!(fechaStream >> dia >> delimitador1 >> mes >> delimitador2 >> anio) ||
+        delimitador1 != '/' || delimitador2 != '/' || dia < 1 || mes < 1 || mes > 12) {
+        return false;  // Error de formato básico
+    }
+
+    // Comprobación de días válidos por mes
+    int diasPorMes[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)) {
+        diasPorMes[1] = 29;  // Año bisiesto
+    }
+
+    if (dia > diasPorMes[mes - 1]) {
+        return false;  // El día no coincide con el número de días de ese mes
+    }
+
+    return true;
+}
+
+time_t InterfazUsuario::convertirFecha(const std::string& fecha){
+    int dia, mes, anio;
+    char delimitador1, delimitador2;
+
+    std::istringstream fechaStream(fecha);
+    fechaStream >> dia >> delimitador1 >> mes >> delimitador2 >> anio;
+
+    struct tm tmFecha = {};
+    tmFecha.tm_mday = dia;
+    tmFecha.tm_mon = mes - 1;  // Los meses en tm están en el rango 0-11
+    tmFecha.tm_year = anio - 1900;  // Los años en tm se cuentan desde 1900
+
+    return mktime(&tmFecha);  // Convertir struct tm a time_t
 }
 
 

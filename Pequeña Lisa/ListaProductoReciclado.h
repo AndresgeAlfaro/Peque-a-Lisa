@@ -5,9 +5,10 @@
 
 class ListaProductoReciclado{
 public:
+	ListaProductoReciclado();
+	~ListaProductoReciclado();
 	void agregar(ProductoReciclado*);
-	void obtenerProducto(int);
-	void eliminar(int);
+	std::string mostrarProductosReciclados() const;
 
 private:
 	NodoProductoReciclado* head;

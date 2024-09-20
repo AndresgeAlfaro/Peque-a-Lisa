@@ -3,6 +3,10 @@
 
 #include "GestosPilaProductos.h"
 #include "Camion.h"
+#include "ColaProcesamiento.h"
+#include <stdexcept>
+#include <ctime> 
+#include "ListaCamion.h"
 
 class InterfazUsuario {
 public:
@@ -14,8 +18,12 @@ private:
     void vista();
     void manejarOpcion(int opcion);
     void manejarVista(int opcionVista);
+    bool fechaValida(const std::string&);
+    time_t convertirFecha(const std::string&);
 
     GestosPilaProductos gestor;
+    ColaProcesamiento cola;
+    ListaCamion camiones;
 };
 
 

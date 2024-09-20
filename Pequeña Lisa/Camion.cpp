@@ -9,17 +9,13 @@ int Camion::getId(){
 }
 
 void Camion::agregarProducto(ProductoReciclado* _producto){
-
+	productos.agregar(_producto);
 }
 
-void Camion::eliminarProducto(ProductoReciclado* _producto){
-
+std::string Camion::mostrarProductosCamion(){
+	return productos.mostrarProductosReciclados();
 }
 
-ListaProductoReciclado Camion::listarProductos()
-{
-	return ListaProductoReciclado();
-}
 
 std::string Camion::toString(){
 	std::stringstream s;
