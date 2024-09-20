@@ -10,6 +10,10 @@ ListaRutaDistribucion::~ListaRutaDistribucion(){
     }
 }
 
+NodoRuta* ListaRutaDistribucion::getHead(){
+    return head;
+}
+
 void ListaRutaDistribucion::agregarRutaInicio(RutaDistribucion* nuevo){
     NodoRuta* nuevoNodo = new NodoRuta(nuevo);
     if (head == nullptr) {

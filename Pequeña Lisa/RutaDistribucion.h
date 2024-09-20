@@ -6,16 +6,15 @@
 
 class RutaDistribucion{
 public:
+	RutaDistribucion(int, std::string);
 	void agregarCamion(Camion*);
-	void ordenarMergeSort();
-	void ordenarQuickSort();
 	int getId();
 	std::string toString();
 
 private:
 	int idUbicacion;
 	std::string nombreDistrito;
-	ListaCamion camiones;
+	ListaCamion* camiones;
 
 };
 

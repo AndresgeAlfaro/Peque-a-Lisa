@@ -11,7 +11,7 @@ public:
 	Producto();
 	~Producto();
 
-	int getId()const;
+	int getId();
 	void setID(int);
 
 	std::string getTipo()const;

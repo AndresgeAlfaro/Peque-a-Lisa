@@ -9,6 +9,7 @@ class ListaRutaDistribucion{
 public:
 	ListaRutaDistribucion();
 	~ListaRutaDistribucion();
+	NodoRuta* getHead();
 	void agregarRutaInicio(RutaDistribucion*);
 	void agregarRutaFinal(RutaDistribucion*);
 	void eliminarRuta(RutaDistribucion*);

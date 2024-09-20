@@ -22,7 +22,8 @@ std::string Camion::toString(){
 	s << "------------------------\n"
 		<< "ID: " << idCamion
 		<< "\nConductor: " << conductor
+		<<productos.mostrarProductosReciclados()
 		<< "\n-----------------------\n";
 
-	return std::string();
+	return s.str();
 }

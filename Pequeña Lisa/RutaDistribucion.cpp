@@ -1,15 +1,9 @@
 #include "RutaDistribucion.h"
 
-void RutaDistribucion::agregarCamion(Camion*)
-{
-}
+RutaDistribucion::RutaDistribucion(int _id, std::string _distrito): idUbicacion(_id), nombreDistrito(_distrito), camiones(new ListaCamion()){}
 
-void RutaDistribucion::ordenarMergeSort()
-{
-}
-
-void RutaDistribucion::ordenarQuickSort()
-{
+void RutaDistribucion::agregarCamion(Camion* _camion){
+	camiones->agregarCamion(_camion);
 }
 
 int RutaDistribucion::getId(){
@@ -18,7 +12,7 @@ int RutaDistribucion::getId(){
 
 std::string RutaDistribucion::toString(){
 	std::stringstream s;
-	s << "----------------------------\n"
+	s << "\n----------------------------\n"
 		<< "ID ubicacion: " << idUbicacion
 		<< "\nDistrito: " << nombreDistrito
 		<< "\n----------------------------\n";

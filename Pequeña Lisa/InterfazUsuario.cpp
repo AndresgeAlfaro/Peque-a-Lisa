@@ -105,31 +105,71 @@ void InterfazUsuario::manejarOpcion(int opcion) {
             break;
         }
         case 4: {
-            int idCamion;
-            std::string conductor;
+            int idCamion, idRuta;
+            std::string conductor, ubicacion;
             Camion* camion = nullptr;
+            RutaDistribucion* ruta = nullptr;
 
             std::cout << "Ingrese el ID del camion: ";
             std::cin >> idCamion;
             if (std::cin.fail()) throw std::invalid_argument("ID de camion invalido");
 
-            bool flag = false;
-            NodoCamion* actual = camiones.getHead();
-            while (actual != nullptr) {
-                camion = actual->getData();
+            bool flagC = false;
+            NodoCamion* actualC = camiones.getHead();
+            while (actualC != nullptr) {
+                camion = actualC->getData();
                 if (camion->getId() == idCamion) { //verificar si el camion ya existe
-                    flag = true;
+                    flagC = true; //camion encontrado
                     break;
                 }
-                actual = actual->getNext();
+                actualC = actualC->getNext();
             }
-
-            std::cout << "Ingrese el nombre del conductor: ";
-            std::cin >> conductor;
-
-            if (!flag) {
+            //si el camion no existe se solicita información del conductor para crear un nuevo camion
+            if (!flagC) {
+                std::cout << "Ingrese el nombre del conductor: ";
+                std::cin >> conductor;
                 camion = new Camion(idCamion, conductor);
                 camiones.agregarCamion(camion);
+            }
+
+            std::cout << "Ingrese el ID de la ruta: ";
+            std::cin >> idRuta;
+            if (std::cin.fail()) throw std::invalid_argument("ID de ruta invalido");
+
+            bool flagR = false;
+            NodoRuta* actualR = rutas.getHead();
+            while (actualR != nullptr) {
+                ruta = actualR->getData();
+                if (ruta->getId() == idRuta) { //verificar si la ruta ya existe
+                    flagR = true; //ruta encontrada
+                    break;
+                }
+                actualR = actualR->getNext();
+            }
+
+            //si la ruta no existe solicitar información para crear una nueva
+            if (!flagR) {
+                std::cout << "Ingrese la ubicación de la ruta: ";
+                std::cin >> ubicacion;
+                ruta = new RutaDistribucion(idRuta, ubicacion);
+                rutas.agregarRutaFinal(ruta);
+            }
+
+            // Verificar si el camión ya está asignado a la ruta específica
+            bool flagCRuta = false;
+            NodoCamion* actualCamionRuta = camionesRuta.getHead();
+            while (actualCamionRuta != nullptr) {
+                Camion* camionEnRuta = actualCamionRuta->getData();
+                if (camionEnRuta->getId() == idCamion) {
+                    flagCRuta = true;  // Camión ya asignado a la ruta
+                    break;
+                }
+                actualCamionRuta = actualCamionRuta->getNext();
+            }
+
+            // Si el camión no está asignado a la ruta, se añade
+            if (!flagCRuta) {
+                camionesRuta.agregarCamion(camion);
             }
 
             int cont = 0;
@@ -138,7 +178,7 @@ void InterfazUsuario::manejarOpcion(int opcion) {
             while (!cola.estaVacia() && cont < capacidad) {
                 ProductoReciclado* productoR = cola.procesarProducto();
                 camion->agregarProducto(productoR);
-                cont;
+                cont++;
             }
 
             std::cout << "Se han cargado " << cont << " productos con en el camion con ID " << idCamion << "\n";
@@ -188,30 +228,40 @@ void InterfazUsuario::manejarVista(int opcionVista) {
             break;
         }
         case 2: {
-            std::cout << "*** PRODUCTOS PROCESADOS ***\n\n";
-            cola.toString();
+            std::cout << "*** PRODUCTOS PROCESADOS ***\n\n"
+                << cola.toString();
             
             break;
         }
         case 3: {
             // Implementar mostrar lista de camiones
-            std::cout << "*** CAMIONES ***\n\n";
-            camiones.imprimirLista();
+            std::cout << "*** CAMIONES ***\n\n"
+                <<camiones.imprimirLista();
             std::cout << "\n\n*** ORDENAMIENTOS ***\n\n"
                 << "BUBBLE SORT\n";
             camiones.ordenarBubbleSort();
-            camiones.imprimirLista();
+            std::cout << camiones.imprimirLista();
             std::cout << "\n\nINSERTION SORT\n";
             camiones.ordenarInsertionSort();
-            camiones.imprimirLista();
+            std::cout << camiones.imprimirLista();
             std::cout << "\n\nSELECTION SORT\n";
             camiones.ordenarSelectionSort();
-            camiones.imprimirLista();
+            std::cout << camiones.imprimirLista();
 
             break;
         }
         case 4: {
             // Implementar mostrar lista de rutas
+            std::cout << "*** RUTAS ***\n\n";
+            rutas.toStringRutas();
+            std::cout << "\n\n*** ORDENAMIENTOS ***\n\n"
+                << "QUICK SORT\n";
+            rutas.ordenarQuickSort();
+            rutas.toStringRutas();
+            std::cout << "\n\nMERGE SORT\n";
+            rutas.ordenarMergeSort();
+            rutas.toStringRutas();
+
             break;
         }
         case 5: {

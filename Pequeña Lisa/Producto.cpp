@@ -9,7 +9,7 @@ Producto::~Producto()
 {
 }
 
-int Producto::getId()const
+int Producto::getId()
 {
     return id;
 }

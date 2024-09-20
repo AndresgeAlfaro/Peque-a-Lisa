@@ -7,6 +7,7 @@
 #include <stdexcept>
 #include <ctime> 
 #include "ListaCamion.h"
+#include "ListaRutaDistribucion.h"
 
 class InterfazUsuario {
 public:
@@ -24,6 +25,8 @@ private:
     GestosPilaProductos gestor;
     ColaProcesamiento cola;
     ListaCamion camiones;
+    ListaRutaDistribucion rutas;
+    ListaCamion camionesRuta;
 };
 
 
