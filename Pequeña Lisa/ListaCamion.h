@@ -3,7 +3,6 @@
 
 #include "Camion.h"
 #include "NodoCamion.h"
-#include <sstream>
 
 class ListaCamion{
 public:

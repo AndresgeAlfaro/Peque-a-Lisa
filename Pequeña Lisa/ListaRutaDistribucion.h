@@ -3,7 +3,6 @@
 
 #include "RutaDistribucion.h"
 #include "NodoRuta.h"
-#include <sstream>
 
 class ListaRutaDistribucion{
 public:

@@ -118,13 +118,12 @@ void InterfazUsuario::manejarOpcion(int opcion) {
             NodoCamion* actualC = camiones.getHead();
             while (actualC != nullptr) {
                 camion = actualC->getData();
-                if (camion->getId() == idCamion) { //verificar si el camion ya existe
-                    flagC = true; //camion encontrado
+                if (camion->getId() == idCamion) {
+                    flagC = true;
                     break;
                 }
                 actualC = actualC->getNext();
             }
-            //si el camion no existe se solicita información del conductor para crear un nuevo camion
             if (!flagC) {
                 std::cout << "Ingrese el nombre del conductor: ";
                 std::cin >> conductor;
@@ -140,14 +139,13 @@ void InterfazUsuario::manejarOpcion(int opcion) {
             NodoRuta* actualR = rutas.getHead();
             while (actualR != nullptr) {
                 ruta = actualR->getData();
-                if (ruta->getId() == idRuta) { //verificar si la ruta ya existe
-                    flagR = true; //ruta encontrada
+                if (ruta->getId() == idRuta) {
+                    flagR = true;
                     break;
                 }
                 actualR = actualR->getNext();
             }
 
-            //si la ruta no existe solicitar información para crear una nueva
             if (!flagR) {
                 std::cout << "Ingrese la ubicación de la ruta: ";
                 std::cin >> ubicacion;
@@ -155,25 +153,23 @@ void InterfazUsuario::manejarOpcion(int opcion) {
                 rutas.agregarRutaFinal(ruta);
             }
 
-            // Verificar si el camión ya está asignado a la ruta específica
             bool flagCRuta = false;
             NodoCamion* actualCamionRuta = camionesRuta.getHead();
             while (actualCamionRuta != nullptr) {
                 Camion* camionEnRuta = actualCamionRuta->getData();
                 if (camionEnRuta->getId() == idCamion) {
-                    flagCRuta = true;  // Camión ya asignado a la ruta
+                    flagCRuta = true;
                     break;
                 }
                 actualCamionRuta = actualCamionRuta->getNext();
             }
 
-            // Si el camión no está asignado a la ruta, se añade
             if (!flagCRuta) {
                 camionesRuta.agregarCamion(camion);
             }
 
             int cont = 0;
-            const int capacidad = 50; //capacidad default de los camiones
+            const int capacidad = 50;
 
             while (!cola.estaVacia() && cont < capacidad) {
                 ProductoReciclado* productoR = cola.procesarProducto();
@@ -220,6 +216,7 @@ void InterfazUsuario::manejarOpcion(int opcion) {
 
 void InterfazUsuario::manejarVista(int opcionVista) {
     while (true) {
+        vista();
         switch (opcionVista) {
         case 1: {
             std::cout << "*** PRODUCTOS ***\n\n";
@@ -230,13 +227,11 @@ void InterfazUsuario::manejarVista(int opcionVista) {
         case 2: {
             std::cout << "*** PRODUCTOS PROCESADOS ***\n\n"
                 << cola.toString();
-            
             break;
         }
         case 3: {
-            // Implementar mostrar lista de camiones
             std::cout << "*** CAMIONES ***\n\n"
-                <<camiones.imprimirLista();
+                << camiones.imprimirLista();
             std::cout << "\n\n*** ORDENAMIENTOS ***\n\n"
                 << "BUBBLE SORT\n";
             camiones.ordenarBubbleSort();
@@ -247,11 +242,9 @@ void InterfazUsuario::manejarVista(int opcionVista) {
             std::cout << "\n\nSELECTION SORT\n";
             camiones.ordenarSelectionSort();
             std::cout << camiones.imprimirLista();
-
             break;
         }
         case 4: {
-            // Implementar mostrar lista de rutas
             std::cout << "*** RUTAS ***\n\n";
             rutas.toStringRutas();
             std::cout << "\n\n*** ORDENAMIENTOS ***\n\n"
@@ -261,7 +254,6 @@ void InterfazUsuario::manejarVista(int opcionVista) {
             std::cout << "\n\nMERGE SORT\n";
             rutas.ordenarMergeSort();
             rutas.toStringRutas();
-
             break;
         }
         case 5: {
@@ -283,6 +275,7 @@ void InterfazUsuario::manejarVista(int opcionVista) {
     }
 }
 
+
 bool InterfazUsuario::fechaValida(const std::string& fecha){
     int dia, mes, anio;
     char delimitador1, delimitador2;
@@ -290,17 +283,16 @@ bool InterfazUsuario::fechaValida(const std::string& fecha){
     std::istringstream fechaStream(fecha);
     if (!(fechaStream >> dia >> delimitador1 >> mes >> delimitador2 >> anio) ||
         delimitador1 != '/' || delimitador2 != '/' || dia < 1 || mes < 1 || mes > 12) {
-        return false;  // Error de formato básico
+        return false;
     }
 
-    // Comprobación de días válidos por mes
     int diasPorMes[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
     if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)) {
-        diasPorMes[1] = 29;  // Año bisiesto
+        diasPorMes[1] = 29;
     }
 
     if (dia > diasPorMes[mes - 1]) {
-        return false;  // El día no coincide con el número de días de ese mes
+        return false;
     }
 
     return true;
@@ -315,10 +307,10 @@ time_t InterfazUsuario::convertirFecha(const std::string& fecha){
 
     struct tm tmFecha = {};
     tmFecha.tm_mday = dia;
-    tmFecha.tm_mon = mes - 1;  // Los meses en tm están en el rango 0-11
-    tmFecha.tm_year = anio - 1900;  // Los años en tm se cuentan desde 1900
+    tmFecha.tm_mon = mes - 1;
+    tmFecha.tm_year = anio - 1900;
 
-    return mktime(&tmFecha);  // Convertir struct tm a time_t
+    return mktime(&tmFecha);
 }
 
 
@@ -330,7 +322,7 @@ void InterfazUsuario::ejecutar() {
         std::cin >> opcion;
         if (std::cin.fail()) {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "Opcion invalida, por favor ingrese un numero.\n";
             continue;
         }

@@ -45,8 +45,8 @@ void ListaRutaDistribucion::eliminarRuta(RutaDistribucion* ruta){
     NodoRuta* actual = head;
     while (actual != nullptr) {
         if (actual->getData() == ruta) {
-            if (actual == head) { // Si es el primero
-                head = head->getNext(); // Ajusta el primero al que le sigue
+            if (actual == head) {
+                head = head->getNext();
                 if (head != nullptr) {
                     head->setPrev(nullptr);
                 }

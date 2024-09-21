@@ -4,8 +4,6 @@
 #include "GestosPilaProductos.h"
 #include "Camion.h"
 #include "ColaProcesamiento.h"
-#include <stdexcept>
-#include <ctime> 
 #include "ListaCamion.h"
 #include "ListaRutaDistribucion.h"
 

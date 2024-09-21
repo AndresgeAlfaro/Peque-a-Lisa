@@ -16,18 +16,16 @@ NodoCamion* ListaCamion::getHead(){
 }
 
 void ListaCamion::agregarCamion(Camion* nuevo){
-	NodoCamion* newNodo = new NodoCamion(nuevo); // Nuevo nodo a insertar 
-	if (head == nullptr) { // Caso: La lista esta vacia
-		head = newNodo; // O(1) (Complejidad Constante)
+	NodoCamion* newNodo = new NodoCamion(nuevo);
+	if (head == nullptr) {
+		head = newNodo;
 	}
-	else { // Caso: La lista ya tiene elementos
-		// primero->getSiguiente()->getSiguiente()->getSiguiente()->getSiguiente.....
-		NodoCamion* aux = head; // Copio el primer nodo 
-		while (aux->getNext() != nullptr) { // Mientras que el nodo que tenga enfrente no este vacio
-			// Metodos que ocupen recorrer la lista //
-			aux = aux->getNext(); // Se mueve al siguiente nodo
+	else {
+		NodoCamion* aux = head;
+		while (aux->getNext() != nullptr) {
+			aux = aux->getNext();
 		}
-		aux->setNext(newNodo); // Se asignaba el nuevo nodo al final
+		aux->setNext(newNodo);
 	}
 }
 
@@ -105,29 +103,28 @@ void ListaCamion::ordenarSelectionSort(){
 }
 
 Camion* ListaCamion::buscarPorId(int _id){
-	NodoCamion* aux = head; // Copiar el primer nodo
-	while (aux != nullptr) { // O(n) Complejidad LINEAL (TIENE UN CICLO)
+	NodoCamion* aux = head;
+	while (aux != nullptr) {
 		if (aux->getData()->getId() == _id) {
 			return aux->getData();
 		}
-		aux = aux->getNext(); // Se mueve al siguiente nodo
+		aux = aux->getNext();
 	}
-	return nullptr; // NO LO ENCONTRE O NO EXISTE
+	return nullptr;
 }
 
 bool ListaCamion::eliminarPorId(int _id){
-	// Caso 1: Lista Vacia
+
 	if (head == nullptr)return false;
 
-	// Caso 2: Si el nodo a eliminar es el primero 
 	if (head->getData()->getId() == _id) {
-		NodoCamion* aux = head; // Copio la lista
+		NodoCamion* aux = head;
 		head = head->getNext();
 		delete aux->getData();
 		delete aux;
 		return true;
 	}
-	else { // Caso 3: Es cualquier otro nodo 
+	else {
 		NodoCamion* aux = head;
 		while (aux->getNext() != nullptr && aux->getNext()->getData()->getId() == _id) {
 			aux = aux->getNext();
@@ -144,10 +141,10 @@ bool ListaCamion::eliminarPorId(int _id){
 std::string ListaCamion::imprimirLista() const{
 	std::stringstream s; 
 	s << "----------------- LISTA DE CAMIONES -----------------\n";
-	NodoCamion* aux = head; // Copiar el primer nodo
-	while (aux != nullptr) { // O(n) Complejidad LINEAL (TIENE UN CICLO)
+	NodoCamion* aux = head;
+	while (aux != nullptr) {
 		s << aux->getData()->toString() << std::endl;
-		aux = aux->getNext(); // Se mueve al siguiente nodo
+		aux = aux->getNext();
 	}
 	return s.str();
 }
