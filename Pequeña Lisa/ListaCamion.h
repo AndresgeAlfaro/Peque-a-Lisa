@@ -1,6 +1,9 @@
 #ifndef LISTACAMION_H
 #define LISTACAMION_H
 
+#include <cstdlib>
+#include <ctime>
+#include <algorithm> 
 #include "Camion.h"
 #include "NodoCamion.h"
 
@@ -16,6 +19,9 @@ public:
 	Camion* buscarPorId(int);
 	bool eliminarPorId(int);
 	std::string imprimirLista() const;
+
+	//implementación proyecto 2
+	void mezclarLista();
 
 private:
 	NodoCamion* head;

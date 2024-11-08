@@ -19,24 +19,24 @@
     <Filter Include="Archivos de origen\Contenedores">
       <UniqueIdentifier>{9d3986fe-da3c-4ef4-b07a-e111db1ec531}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Proyecto2">
+      <UniqueIdentifier>{270d924d-49e7-443a-a91d-4e919a1d8ffa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Proyecto1">
+      <UniqueIdentifier>{ac8b2443-9ab6-4833-9fe3-56963aeacb3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Proyecto2">
+      <UniqueIdentifier>{7cab98af-8843-495a-bebc-3872ed51fa84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Proyecto1">
+      <UniqueIdentifier>{95413ba3-d972-4913-a757-e6788019db2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Producto.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ProductoReciclado.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Camion.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="ColaProcesamiento.cpp">
-      <Filter>Archivos de origen\Contenedores</Filter>
-    </ClCompile>
-    <ClCompile Include="ListaCamion.cpp">
       <Filter>Archivos de origen\Contenedores</Filter>
     </ClCompile>
     <ClCompile Include="ListaProductoReciclado.cpp">
@@ -57,29 +57,41 @@
     <ClCompile Include="NodoRuta.cpp">
       <Filter>Archivos de origen\Contenedores</Filter>
     </ClCompile>
-    <ClCompile Include="GestosPilaProductos.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="NodoProductos.cpp">
       <Filter>Archivos de origen\Contenedores</Filter>
     </ClCompile>
+    <ClCompile Include="Camion.cpp">
+      <Filter>Archivos de origen\Proyecto2</Filter>
+    </ClCompile>
+    <ClCompile Include="NodoGrafo.cpp">
+      <Filter>Archivos de origen\Proyecto2</Filter>
+    </ClCompile>
+    <ClCompile Include="GestosPilaProductos.cpp">
+      <Filter>Archivos de origen\Proyecto1</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfazUsuario.cpp">
+      <Filter>Archivos de origen\Proyecto1</Filter>
+    </ClCompile>
+    <ClCompile Include="Producto.cpp">
+      <Filter>Archivos de origen\Proyecto1</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductoReciclado.cpp">
+      <Filter>Archivos de origen\Proyecto1</Filter>
+    </ClCompile>
     <ClCompile Include="RutaDistribucion.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Proyecto1</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaCamion.cpp">
+      <Filter>Archivos de origen\Proyecto2</Filter>
+    </ClCompile>
+    <ClCompile Include="GrafoDistribucion.cpp">
+      <Filter>Archivos de origen\Proyecto2</Filter>
+    </ClCompile>
+    <ClCompile Include="BusquedaRuta.cpp">
+      <Filter>Archivos de origen\Proyecto2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Producto.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ProductoReciclado.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Camion.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ListaCamion.h">
-      <Filter>Archivos de encabezado\Contenedores</Filter>
-    </ClInclude>
     <ClInclude Include="ListaProductoReciclado.h">
       <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
@@ -101,14 +113,41 @@
     <ClInclude Include="NodoRuta.h">
       <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
-    <ClInclude Include="GestosPilaProductos.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="RutaDistribucion.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="NodoProductos.h">
       <Filter>Archivos de encabezado\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="Camion.h">
+      <Filter>Archivos de encabezado\Proyecto2</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoGrafo.h">
+      <Filter>Archivos de encabezado\Proyecto2</Filter>
+    </ClInclude>
+    <ClInclude Include="GestosPilaProductos.h">
+      <Filter>Archivos de encabezado\Proyecto1</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes.h">
+      <Filter>Archivos de encabezado\Proyecto1</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfazUsuario.h">
+      <Filter>Archivos de encabezado\Proyecto1</Filter>
+    </ClInclude>
+    <ClInclude Include="Producto.h">
+      <Filter>Archivos de encabezado\Proyecto1</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductoReciclado.h">
+      <Filter>Archivos de encabezado\Proyecto1</Filter>
+    </ClInclude>
+    <ClInclude Include="RutaDistribucion.h">
+      <Filter>Archivos de encabezado\Proyecto1</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaCamion.h">
+      <Filter>Archivos de encabezado\Proyecto2</Filter>
+    </ClInclude>
+    <ClInclude Include="GrafoDistribucion.h">
+      <Filter>Archivos de encabezado\Proyecto2</Filter>
+    </ClInclude>
+    <ClInclude Include="BusquedaRuta.h">
+      <Filter>Archivos de encabezado\Proyecto2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,14 +1,19 @@
 #ifndef CAMION_H
 #define CAMION_H
 
+#include <vector>
 #include "ProductoReciclado.h"
 #include "ListaProductoReciclado.h"
+#include "NodoGrafo.h"
 
 class Camion{
 private:
 	int idCamion;
 	std::string conductor;
 	ListaProductoReciclado productos;
+
+	//implementación proyecto 2
+	std::vector<NodoGrafo*> rutaAsignada;
 
 public:
 	Camion(int, std::string);
@@ -17,6 +22,10 @@ public:
 	void agregarProducto(ProductoReciclado*);
 	std::string mostrarProductosCamion();
 	std::string toString();
+
+	//implementación proyecto 2
+	void asignarRuta(const std::vector<NodoGrafo*>&);
+	std::string mostrarRuta();
 
 };
 

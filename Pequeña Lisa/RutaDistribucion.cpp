@@ -15,6 +15,8 @@ std::string RutaDistribucion::toString(){
 	s << "\n----------------------------\n"
 		<< "ID ubicacion: " << idUbicacion
 		<< "\nDistrito: " << nombreDistrito
+		<< "\nCamiones Asociados:\n"
+		<< camiones->imprimirLista()
 		<< "\n----------------------------\n";
 
 	return s.str();

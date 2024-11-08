@@ -16,6 +16,9 @@ public:
 	void ordenarQuickSort();
 	void toStringRutas();
 
+	//implementación proyecto 2
+	void mezclarRutas();
+
 private:
 	NodoRuta* head;
 

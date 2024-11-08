@@ -84,6 +84,31 @@ void ListaRutaDistribucion::toStringRutas(){
     }
 }
 
+void ListaRutaDistribucion::mezclarRutas() {
+    if (!head)
+        return;
+
+    // Convertir la lista a un vector para realizar la mezcla
+    std::vector<NodoRuta*> nodos;
+    NodoRuta* actual = head;
+    while (actual) {
+        nodos.push_back(actual);
+        actual = actual->getNext();
+    }
+
+    std::srand(std::time(0));
+    std::random_shuffle(nodos.begin(), nodos.end());
+
+    head = nodos[0];
+    NodoRuta* nuevoActual = head;
+    for (size_t i = 1; i < nodos.size(); ++i) {
+        nuevoActual->setNext(nodos[i]);
+        nodos[i]->setPrev(nuevoActual);
+        nuevoActual = nodos[i];
+    }
+    nuevoActual->setNext(nullptr);
+}
+
 NodoRuta* ListaRutaDistribucion::dividirLista(NodoRuta* _head){
     NodoRuta* slow = _head;
     NodoRuta* fast = _head->getNext();

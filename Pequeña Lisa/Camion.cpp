@@ -23,7 +23,21 @@ std::string Camion::toString(){
 		<< "ID: " << idCamion
 		<< "\nConductor: " << conductor
 		<<productos.mostrarProductosReciclados()
+		<< "\n" << mostrarRuta()
 		<< "\n-----------------------\n";
 
+	return s.str();
+}
+
+void Camion::asignarRuta(const std::vector<NodoGrafo*>& _rutaAsignada){
+	this->rutaAsignada = _rutaAsignada;
+}
+
+std::string Camion::mostrarRuta(){
+	std::stringstream s;
+	s << "Ruta Asignada:\n";
+	for (const auto& nodo : rutaAsignada) {
+		s << nodo->getNombre() << " - " << nodo->getUbicacion() << "\n";
+	}
 	return s.str();
 }
