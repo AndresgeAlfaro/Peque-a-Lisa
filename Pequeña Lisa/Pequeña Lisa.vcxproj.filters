@@ -69,9 +69,6 @@
     <ClCompile Include="GestosPilaProductos.cpp">
       <Filter>Archivos de origen\Proyecto1</Filter>
     </ClCompile>
-    <ClCompile Include="InterfazUsuario.cpp">
-      <Filter>Archivos de origen\Proyecto1</Filter>
-    </ClCompile>
     <ClCompile Include="Producto.cpp">
       <Filter>Archivos de origen\Proyecto1</Filter>
     </ClCompile>
@@ -81,14 +78,17 @@
     <ClCompile Include="RutaDistribucion.cpp">
       <Filter>Archivos de origen\Proyecto1</Filter>
     </ClCompile>
-    <ClCompile Include="ListaCamion.cpp">
-      <Filter>Archivos de origen\Proyecto2</Filter>
-    </ClCompile>
     <ClCompile Include="GrafoDistribucion.cpp">
       <Filter>Archivos de origen\Proyecto2</Filter>
     </ClCompile>
     <ClCompile Include="BusquedaRuta.cpp">
       <Filter>Archivos de origen\Proyecto2</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfazUsuario.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaCamion.cpp">
+      <Filter>Archivos de origen\Contenedores</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +128,6 @@
     <ClInclude Include="Includes.h">
       <Filter>Archivos de encabezado\Proyecto1</Filter>
     </ClInclude>
-    <ClInclude Include="InterfazUsuario.h">
-      <Filter>Archivos de encabezado\Proyecto1</Filter>
-    </ClInclude>
     <ClInclude Include="Producto.h">
       <Filter>Archivos de encabezado\Proyecto1</Filter>
     </ClInclude>
@@ -140,14 +137,17 @@
     <ClInclude Include="RutaDistribucion.h">
       <Filter>Archivos de encabezado\Proyecto1</Filter>
     </ClInclude>
-    <ClInclude Include="ListaCamion.h">
-      <Filter>Archivos de encabezado\Proyecto2</Filter>
-    </ClInclude>
     <ClInclude Include="GrafoDistribucion.h">
       <Filter>Archivos de encabezado\Proyecto2</Filter>
     </ClInclude>
     <ClInclude Include="BusquedaRuta.h">
       <Filter>Archivos de encabezado\Proyecto2</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfazUsuario.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaCamion.h">
+      <Filter>Archivos de encabezado\Contenedores</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

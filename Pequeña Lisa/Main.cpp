@@ -2,6 +2,7 @@
 
 int main() {
     InterfazUsuario interfaz;
-    interfaz.ejecutar();
+    //interfaz.ejecutar();
+    interfaz.menuGestorRutas();
     return 0;
 }

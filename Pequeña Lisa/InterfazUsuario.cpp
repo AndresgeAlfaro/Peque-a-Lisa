@@ -1,6 +1,21 @@
 #include "InterfazUsuario.h"
 
-InterfazUsuario::InterfazUsuario() {}
+InterfazUsuario::InterfazUsuario() {
+    //Inicialización de puntos de recolección y procesamiento
+    centrosRecoleccion.push_back({ 1, "Punto Limpio Montes de Oca", "San Pedro, San Jose" });
+    centrosRecoleccion.push_back({ 2, "Centro de Acopio Curridabat", "Curridabat, San Jose" });
+    centrosRecoleccion.push_back({ 3, "Centro de Acopio Santa Ana", "Santa Ana, San Jose" });
+    centrosRecoleccion.push_back({ 4, "Centro de Recoleccion y Reciclaje Hatillo", "Hatillo, San Jose" });
+    centrosRecoleccion.push_back({ 5, "Centro de Acopio Belen", "Belen, Heredia" });
+    centrosRecoleccion.push_back({ 6, "Punto Verde Escazú", "Escazú, San José" });
+
+    centrosProcesamiento.push_back({ 1, "Ecolones Centro de Procesamiento de Materiales", "La Uruca, San Jose" });
+    centrosProcesamiento.push_back({ 2, "Total Reclaim S.A.", "El Coyol, Alajuela" });
+    centrosProcesamiento.push_back({ 3, "Multigestiones Ambientales", "San Rafael de Heredia" });
+    centrosProcesamiento.push_back({ 4, "Pedregal Centro de Procesamiento de Reciclaje", "San Antonio de Belen, Heredia" });
+    centrosProcesamiento.push_back({ 5, "Recicladora La Virgen", "Sarapiqui, Heredia" });
+    centrosProcesamiento.push_back({ 6, "Planta de Compostaje Tilaran", "Tilaran, Guanacaste" });
+}
 
 void InterfazUsuario::menu() {
     std::cout << "*** MENU PRINCIPAL ***\n"
@@ -328,4 +343,79 @@ void InterfazUsuario::ejecutar() {
         }
         manejarOpcion(opcion);
     }
+}
+
+void InterfazUsuario::registrarCamion(int id){
+    camionesGrafo.push_back(id);
+    std::cout << "Camion con el id " << id << " registrado.\n";
+}
+
+void InterfazUsuario::generarRutaAleatoria(int idCamion){
+    if (camionesGrafo.empty()) {
+        std::cout << "No hay camiones registrados.\n";
+        return;
+    }
+
+    std::random_device rd;
+    std::mt19937 g(rd());
+
+    shuffle(centrosRecoleccion.begin(), centrosRecoleccion.end(), g);
+    shuffle(centrosProcesamiento.begin(), centrosProcesamiento.end(), g);
+
+    std::vector<Punto> ruta;
+
+    // Selección de 4 centros de recolección aleatorios
+    for (int i = 0; i < 4; ++i) {
+        ruta.push_back(centrosRecoleccion[i]);
+    }
+
+    // Selección de 4 centros de procesamiento aleatorios
+    for (int i = 0; i < 4; ++i) {
+        ruta.push_back(centrosProcesamiento[i]);
+    }
+
+    std::cout << "Ruta generada para el camion " << idCamion << ":\n";
+    for (const auto& punto : ruta) {
+        std::cout << "ID: " << punto.id << ", Nombre: " << punto.nombre << ", Ubicacion: " << punto.ubicacion << "\n";
+    }
+}
+
+void InterfazUsuario::menuGestorRutas(){
+    int opcion;
+    do {
+        std::cout << "\n--- Menu Principal ---\n"
+            << "1. Registrar camion\n"
+            << "2. Generar ruta aleatoria para un camión\n"
+            << "3. Salir\n"
+            << "Ingrese una opcion: ";
+        std::cin >> opcion;
+
+        switch (opcion) {
+        case 1: {
+            int id;
+            std::cout << "Ingrese el ID del camion: ";
+            std::cin >> id;
+            registrarCamion(id);
+            break;
+        }
+        case 2: {
+            if (camionesGrafo.empty()) {
+                std::cout << "No hay camiones registrados.\n";
+            }
+            else {
+                int id;
+                std::cout << "Ingrese el ID del camion para generar una ruta: ";
+                std::cin >> id;
+                generarRutaAleatoria(id);
+            }
+            break;
+        }
+        case 3:
+            std::cout << "Saliendo del programa...\n";
+            break;
+        default:
+            std::cout << "Opción inválida. Intente de nuevo.\n";
+            break;
+        }
+    } while (opcion != 3);
 }

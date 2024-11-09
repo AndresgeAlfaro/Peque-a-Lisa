@@ -20,9 +20,6 @@ public:
 	bool eliminarPorId(int);
 	std::string imprimirLista() const;
 
-	//implementación proyecto 2
-	void mezclarLista();
-
 private:
 	NodoCamion* head;
 
