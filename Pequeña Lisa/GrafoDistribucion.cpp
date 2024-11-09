@@ -13,6 +13,11 @@ GrafoDistribucion::~GrafoDistribucion(){
 }
 
 void GrafoDistribucion::agregarNodo(NodoGrafo* nuevoNodo){
+    if (existeNodo(nuevoNodo->getId())) {
+        std::cerr << "Nodo con ID " << nuevoNodo->getId() << " ya existe y no sera agregado nuevamente.\n";
+        return;
+    }
+
     NodoLista* nuevo = new NodoLista(nuevoNodo);
     nuevo->siguiente = head;
     head = nuevo;
@@ -26,7 +31,7 @@ void GrafoDistribucion::agregarConexion(int idOrigen, int idDestino, double peso
         origen->agregarConexion(destino, peso);
     }
     else {
-        std::cerr << "Error: No se encontró el nodo de origen o destino para agregar la conexión.\n";
+        std::cerr << "Error: No se encontro el nodo de origen o destino para agregar la conexión.\n";
     }
 }
 
@@ -39,6 +44,17 @@ NodoGrafo* GrafoDistribucion::buscarNodo(int id){
         actual = actual->siguiente;
     }
     return nullptr;
+}
+
+bool GrafoDistribucion::existeNodo(int id){
+    NodoLista* actual = head;
+    while (actual) {
+        if (actual->nodo->getId() == id) {
+            return true;
+        }
+        actual = actual->siguiente;
+    }
+    return false;
 }
 
 std::string GrafoDistribucion::mostrarGrafo() const{

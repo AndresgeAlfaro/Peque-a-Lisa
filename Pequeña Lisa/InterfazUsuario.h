@@ -7,11 +7,11 @@
 #include "ListaCamion.h"
 #include "ListaRutaDistribucion.h"
 
+#include "GrafoDistribucion.h"
+#include "BusquedaRuta.h"
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cstdlib>
-#include <ctime>
 #include <algorithm>
 #include <random>
 
@@ -51,6 +51,7 @@ private:
     std::vector<Punto> centrosRecoleccion;
     std::vector<Punto> centrosProcesamiento;
     std::vector<int> camionesGrafo;
+    GrafoDistribucion grafo;
 
 };
 

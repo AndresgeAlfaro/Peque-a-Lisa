@@ -24,6 +24,7 @@ public:
     void agregarNodo(NodoGrafo*);
     void agregarConexion(int, int, double);
     NodoGrafo* buscarNodo(int);
+    bool existeNodo(int);
     std::string mostrarGrafo() const;
 
 };

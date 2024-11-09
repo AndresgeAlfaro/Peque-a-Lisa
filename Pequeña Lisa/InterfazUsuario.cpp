@@ -9,13 +9,23 @@ InterfazUsuario::InterfazUsuario() {
     centrosRecoleccion.push_back({ 5, "Centro de Acopio Belen", "Belen, Heredia" });
     centrosRecoleccion.push_back({ 6, "Punto Verde Escazú", "Escazú, San José" });
 
-    centrosProcesamiento.push_back({ 1, "Ecolones Centro de Procesamiento de Materiales", "La Uruca, San Jose" });
-    centrosProcesamiento.push_back({ 2, "Total Reclaim S.A.", "El Coyol, Alajuela" });
-    centrosProcesamiento.push_back({ 3, "Multigestiones Ambientales", "San Rafael de Heredia" });
-    centrosProcesamiento.push_back({ 4, "Pedregal Centro de Procesamiento de Reciclaje", "San Antonio de Belen, Heredia" });
-    centrosProcesamiento.push_back({ 5, "Recicladora La Virgen", "Sarapiqui, Heredia" });
-    centrosProcesamiento.push_back({ 6, "Planta de Compostaje Tilaran", "Tilaran, Guanacaste" });
+    centrosProcesamiento.push_back({ 7, "Ecolones Centro de Procesamiento de Materiales", "La Uruca, San Jose" });
+    centrosProcesamiento.push_back({ 8, "Total Reclaim S.A.", "El Coyol, Alajuela" });
+    centrosProcesamiento.push_back({ 9, "Multigestiones Ambientales", "San Rafael de Heredia" });
+    centrosProcesamiento.push_back({ 10, "Pedregal Centro de Procesamiento de Reciclaje", "San Antonio de Belen, Heredia" });
+    centrosProcesamiento.push_back({ 11, "Recicladora La Virgen", "Sarapiqui, Heredia" });
+    centrosProcesamiento.push_back({ 12, "Planta de Compostaje Tilaran", "Tilaran, Guanacaste" });
+
+    for (const auto& punto : centrosRecoleccion) {
+        NodoGrafo* nodo = new NodoGrafo(punto.id, punto.nombre, punto.ubicacion);
+        grafo.agregarNodo(nodo);
+    }
+    for (const auto& punto : centrosProcesamiento) {
+        NodoGrafo* nodo = new NodoGrafo(punto.id, punto.nombre, punto.ubicacion);
+        grafo.agregarNodo(nodo);
+    }
 }
+    
 
 void InterfazUsuario::menu() {
     std::cout << "*** MENU PRINCIPAL ***\n"
@@ -356,6 +366,11 @@ void InterfazUsuario::generarRutaAleatoria(int idCamion){
         return;
     }
 
+    if (centrosRecoleccion.empty() || centrosProcesamiento.empty()) {
+        std::cout << "No hay centros de recolección o procesamiento disponibles.\n";
+        return;
+    }
+
     std::random_device rd;
     std::mt19937 g(rd());
 
@@ -378,6 +393,36 @@ void InterfazUsuario::generarRutaAleatoria(int idCamion){
     for (const auto& punto : ruta) {
         std::cout << "ID: " << punto.id << ", Nombre: " << punto.nombre << ", Ubicacion: " << punto.ubicacion << "\n";
     }
+
+    BusquedaRuta algoritmo;
+    for (int i = 0; i < ruta.size() - 1; ++i) {
+        NodoGrafo* origen = grafo.buscarNodo(ruta[i].id);
+        NodoGrafo* destino = grafo.buscarNodo(ruta[i + 1].id);
+
+        if (origen && destino) {
+            // Usar buscarRutaOptima para obtener la ruta desde el nodo origen hasta el nodo destino
+            algoritmo.buscarRutaOptima(grafo, origen->id, destino->id);
+
+            std::vector<NodoGrafo*> rutaCamion = algoritmo.obtenerRuta(destino->id);
+
+            std::cout << "Ruta de " << origen->nombre
+                << " (ID: " << origen->id << ") a "
+                << destino->nombre << " (ID: "
+                << destino->id << ") (Camión "
+                << idCamion << "):\n\n"
+                << "Recorrido: ";
+
+            for (auto& nodo : rutaCamion) {
+                std::cout << nodo->nombre << " (ID: " << nodo->id << ") ";
+            }
+            std::cout << "\n";
+        }
+        else {
+            std::cout << "Error: Nodo no encontrado en la ruta.\n";
+        }
+       
+    }
+
 }
 
 void InterfazUsuario::menuGestorRutas(){
