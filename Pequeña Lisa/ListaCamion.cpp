@@ -148,27 +148,3 @@ std::string ListaCamion::imprimirLista() const{
 	}
 	return s.str();
 }
-
-void ListaCamion::mezclarLista(){
-	if (!head) 
-		return;
-
-	// Convertir la lista a un vector para realizar la mezcla
-	std::vector<NodoCamion*> nodos;
-	NodoCamion* aux = head;
-	while (aux) {
-		nodos.push_back(aux);
-		aux = aux->getNext();
-	}
-
-	std::srand(std::time(0));
-	std::random_shuffle(nodos.begin(), nodos.end());
-
-	head = nodos[0];
-	NodoCamion* current = head;
-	for (size_t i = 1; i < nodos.size(); ++i) {
-		current->setNext(nodos[i]);
-		current = current->getNext();
-	}
-	current->setNext(nullptr);
-}

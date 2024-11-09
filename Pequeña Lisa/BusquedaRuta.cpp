@@ -77,6 +77,7 @@ void BusquedaRuta::buscarRutaOptima(GrafoDistribucion& grafo, int idInicio, int 
                 double nuevaDist = distActual->distancia + arista->peso;
                 if (nuevaDist < vecinoDist->distancia) {
                     vecinoDist->distancia = nuevaDist;
+                    vecinoDist->predecesor = nodoActual;
                 }
             }
 
@@ -89,17 +90,60 @@ void BusquedaRuta::buscarRutaOptima(GrafoDistribucion& grafo, int idInicio, int 
 
 void BusquedaRuta::mostrarRuta(int destinoId){
     NodoDistancia* actual = listaDistancias;
+    NodoGrafo* destino = nullptr;
     while (actual) {
         if (actual->nodo->getId() == destinoId) {
-            if (actual->distancia == std::numeric_limits<double>::infinity()) {
-                std::cout << "No se encontró una ruta al nodo destino.\n";
-            }
-            else {
-                std::cout << "La distancia mínima al nodo destino es: " << actual->distancia << "\n";
-            }
-            return;
+            destino = actual->nodo;
+            break;
         }
         actual = actual->siguiente;
     }
-    std::cout << "Nodo destino no encontrado.\n";
+
+    if (!destino) {
+        std::cout << "Nodo destino no encontrado.\n";
+        return;
+    }
+
+    std::vector<NodoGrafo*> ruta;
+    NodoGrafo* nodoActual = destino;
+    while (nodoActual) {
+        ruta.push_back(nodoActual);
+        nodoActual = listaDistancias ? listaDistancias->predecesor : nullptr;
+    }
+
+    std::reverse(ruta.begin(), ruta.end());
+
+    std::cout << "Ruta desde el nodo de inicio hasta el nodo destino: \n";
+    for (NodoGrafo* nodo : ruta) {
+        std::cout << nodo->getId() << " ";
+    }
+    std::cout << std::endl;
+}
+
+std::vector<NodoGrafo*> BusquedaRuta::obtenerRuta(int destinoId){
+    NodoDistancia* actual = listaDistancias;
+    NodoGrafo* destino = nullptr;
+    while (actual) {
+        if (actual->nodo->getId() == destinoId) {
+            destino = actual->nodo;
+            break;
+        }
+        actual = actual->siguiente;
+    }
+
+    if (!destino) {
+        std::cout << "Nodo destino no encontrado.\n";
+        return {};
+    }
+
+    std::vector<NodoGrafo*> ruta;
+    NodoGrafo* nodoActual = destino;
+    while (nodoActual) {
+        ruta.push_back(nodoActual);
+        nodoActual = listaDistancias ? listaDistancias->predecesor : nullptr;
+    }
+
+    std::reverse(ruta.begin(), ruta.end());
+
+    return ruta;
 }
