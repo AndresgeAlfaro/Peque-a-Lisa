@@ -31,11 +31,12 @@ void InterfazUsuario::menu() {
     std::cout << "*** MENU PRINCIPAL ***\n"
         << "[ 1 ] Ingresar producto\n"
         << "[ 2 ] Buscar producto\n"
-        << "[ 3 ] Procesar productos \n"
+        << "[ 3 ] Procesar productos\n"
         << "[ 4 ] Distribuir productos\n"
         << "[ 5 ] Eliminar productos no reciclables\n"
         << "[ 6 ] Vista\n"
-        << "[ 7 ] Salir\n";
+        << "[ 7 ] Gestionar camiones y rutas\n"
+        << "[ 8 ] Salir\n";
 }
 
 void InterfazUsuario::vista() {
@@ -226,9 +227,12 @@ void InterfazUsuario::manejarOpcion(int opcion) {
             break;
         }
         case 7: {
-            std::cout << "Saliendo... \n";
+            menuGestorRutas();
             break;
         }
+        case 8:
+            std::cout << "Saliendo...\n"; 
+            break;
         default:
             std::cout << "Opcion invalida!\n";
         }
@@ -341,14 +345,14 @@ time_t InterfazUsuario::convertirFecha(const std::string& fecha){
 
 void InterfazUsuario::ejecutar() {
     int opcion = 0;
-    while (opcion != 7) {
+    while (opcion != 8) {
         menu();
-        std::cout << "Seleccione la opcion que desea realizar: ";
+        std::cout << "Seleccione la opción que desea realizar: ";
         std::cin >> opcion;
         if (std::cin.fail()) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Opcion invalida, por favor ingrese un numero.\n";
+            std::cout << "Opción inválida, por favor ingrese un número.\n";
             continue;
         }
         manejarOpcion(opcion);

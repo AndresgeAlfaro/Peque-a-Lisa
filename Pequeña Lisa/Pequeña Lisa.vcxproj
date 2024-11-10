@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArbolAVL.cpp" />
     <ClCompile Include="BusquedaRuta.cpp" />
     <ClCompile Include="Camion.cpp" />
     <ClCompile Include="GrafoDistribucion.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="RutaDistribucion.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArbolAVL.h" />
     <ClInclude Include="BusquedaRuta.h" />
     <ClInclude Include="Camion.h" />
     <ClInclude Include="GrafoDistribucion.h" />
