@@ -15,6 +15,9 @@
 #include <algorithm>
 #include <random>
 
+#include "ArbolAVL.h"
+#include "NodoGrafo.h"
+
 class InterfazUsuario {
 public:
 
@@ -48,6 +51,7 @@ private:
     ListaCamion camionesRuta;
 
     //implementación proyecto 2
+    ArbolAVL arbolAVL;
     std::vector<Punto> centrosRecoleccion;
     std::vector<Punto> centrosProcesamiento;
     std::vector<int> camionesGrafo;

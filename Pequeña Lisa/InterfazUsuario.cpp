@@ -1,7 +1,7 @@
 #include "InterfazUsuario.h"
 
 InterfazUsuario::InterfazUsuario() {
-    //Inicialización de puntos de recolección y procesamiento
+    // Inicialización de puntos de recolección y procesamiento
     centrosRecoleccion.push_back({ 1, "Punto Limpio Montes de Oca", "San Pedro, San Jose" });
     centrosRecoleccion.push_back({ 2, "Centro de Acopio Curridabat", "Curridabat, San Jose" });
     centrosRecoleccion.push_back({ 3, "Centro de Acopio Santa Ana", "Santa Ana, San Jose" });
@@ -16,26 +16,33 @@ InterfazUsuario::InterfazUsuario() {
     centrosProcesamiento.push_back({ 11, "Recicladora La Virgen", "Sarapiqui, Heredia" });
     centrosProcesamiento.push_back({ 12, "Planta de Compostaje Tilaran", "Tilaran, Guanacaste" });
 
+    // Agregar nodos al grafo y al árbol AVL
     for (const auto& punto : centrosRecoleccion) {
         NodoGrafo* nodo = new NodoGrafo(punto.id, punto.nombre, punto.ubicacion);
         grafo.agregarNodo(nodo);
+        arbolAVL.insertar(nodo); // Insertar en el árbol AVL
     }
+
     for (const auto& punto : centrosProcesamiento) {
         NodoGrafo* nodo = new NodoGrafo(punto.id, punto.nombre, punto.ubicacion);
         grafo.agregarNodo(nodo);
+        arbolAVL.insertar(nodo); // Insertar en el árbol AVL
     }
 }
+
     
 
 void InterfazUsuario::menu() {
     std::cout << "*** MENU PRINCIPAL ***\n"
         << "[ 1 ] Ingresar producto\n"
         << "[ 2 ] Buscar producto\n"
-        << "[ 3 ] Procesar productos \n"
+        << "[ 3 ] Procesar productos\n"
         << "[ 4 ] Distribuir productos\n"
         << "[ 5 ] Eliminar productos no reciclables\n"
         << "[ 6 ] Vista\n"
-        << "[ 7 ] Salir\n";
+        << "[ 7 ] Gestionar camiones y rutas\n"
+        << "[ 8 ] Mostrar grafo en AVL\n"  // Nueva opción para mostrar el árbol AVL
+        << "[ 9 ] Salir\n";
 }
 
 void InterfazUsuario::vista() {
@@ -226,7 +233,18 @@ void InterfazUsuario::manejarOpcion(int opcion) {
             break;
         }
         case 7: {
-            std::cout << "Saliendo... \n";
+            menuGestorRutas();
+            break;
+        }
+        case 8: {
+            std::cout << "*** GRAFO EN ARBOL AVL ***\n";
+            arbolAVL.mostrar();  // Muestra el árbol AVL en orden
+            break;
+        }
+            
+
+        case 9: {
+            std::cout << "Saliendo...\n";
             break;
         }
         default:
@@ -341,14 +359,14 @@ time_t InterfazUsuario::convertirFecha(const std::string& fecha){
 
 void InterfazUsuario::ejecutar() {
     int opcion = 0;
-    while (opcion != 7) {
+    while (opcion != 8) {
         menu();
-        std::cout << "Seleccione la opcion que desea realizar: ";
+        std::cout << "Seleccione la opción que desea realizar: ";
         std::cin >> opcion;
         if (std::cin.fail()) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Opcion invalida, por favor ingrese un numero.\n";
+            std::cout << "Opción inválida, por favor ingrese un número.\n";
             continue;
         }
         manejarOpcion(opcion);

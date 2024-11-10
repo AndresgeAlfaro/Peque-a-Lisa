@@ -5,6 +5,7 @@
 #include "ProductoReciclado.h"
 #include "ListaProductoReciclado.h"
 #include "NodoGrafo.h"
+#include "ArbolAVL.h"
 
 class Camion{
 private:
@@ -14,6 +15,7 @@ private:
 
 	//implementación proyecto 2
 	std::vector<NodoGrafo*> rutaAsignada;
+	ArbolAVL arbolRutas;
 
 public:
 	Camion(int, std::string);
@@ -26,6 +28,7 @@ public:
 	//implementación proyecto 2
 	void asignarRuta(const std::vector<NodoGrafo*>&);
 	std::string mostrarRuta();
+	void ejecutarRuta();
 
 };
 

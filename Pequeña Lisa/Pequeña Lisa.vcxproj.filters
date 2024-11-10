@@ -90,6 +90,9 @@
     <ClCompile Include="ListaCamion.cpp">
       <Filter>Archivos de origen\Contenedores</Filter>
     </ClCompile>
+    <ClCompile Include="ArbolAVL.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ListaProductoReciclado.h">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="ListaCamion.h">
       <Filter>Archivos de encabezado\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="ArbolAVL.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
