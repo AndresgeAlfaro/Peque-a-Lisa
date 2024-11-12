@@ -1,7 +1,6 @@
 #include "InterfazUsuario.h"
 
 InterfazUsuario::InterfazUsuario() {
-    // Inicialización de puntos de recolección y procesamiento
     centrosRecoleccion.push_back({ 1, "Punto Limpio Montes de Oca", "San Pedro, San Jose" });
     centrosRecoleccion.push_back({ 2, "Centro de Acopio Curridabat", "Curridabat, San Jose" });
     centrosRecoleccion.push_back({ 3, "Centro de Acopio Santa Ana", "Santa Ana, San Jose" });
@@ -16,17 +15,16 @@ InterfazUsuario::InterfazUsuario() {
     centrosProcesamiento.push_back({ 11, "Recicladora La Virgen", "Sarapiqui, Heredia" });
     centrosProcesamiento.push_back({ 12, "Planta de Compostaje Tilaran", "Tilaran, Guanacaste" });
 
-    // Agregar nodos al grafo y al árbol AVL
     for (const auto& punto : centrosRecoleccion) {
         NodoGrafo* nodo = new NodoGrafo(punto.id, punto.nombre, punto.ubicacion);
         grafo.agregarNodo(nodo);
-        arbolAVL.insertar(nodo); // Insertar en el árbol AVL
+        arbolAVL.insertar(nodo);
     }
 
     for (const auto& punto : centrosProcesamiento) {
         NodoGrafo* nodo = new NodoGrafo(punto.id, punto.nombre, punto.ubicacion);
         grafo.agregarNodo(nodo);
-        arbolAVL.insertar(nodo); // Insertar en el árbol AVL
+        arbolAVL.insertar(nodo);
     }
 }
 
@@ -41,7 +39,7 @@ void InterfazUsuario::menu() {
         << "[ 5 ] Eliminar productos no reciclables\n"
         << "[ 6 ] Vista\n"
         << "[ 7 ] Gestionar camiones y rutas\n"
-        << "[ 8 ] Mostrar grafo en AVL\n"  // Nueva opción para mostrar el árbol AVL
+        << "[ 8 ] Mostrar grafo en AVL\n" 
         << "[ 9 ] Salir\n";
 }
 
@@ -237,18 +235,17 @@ void InterfazUsuario::manejarOpcion(int opcion) {
             break;
         }
         case 8: {
+            
             std::cout << "*** GRAFO EN ARBOL AVL ***\n";
-            arbolAVL.mostrar();  // Muestra el árbol AVL en orden
+            arbolAVL.mostrarGrafoPorID();
             break;
         }
-            
-
         case 9: {
             std::cout << "Saliendo...\n";
             break;
         }
         default:
-            std::cout << "Opcion invalida!\n";
+            std::cout << "Opción inválida!\n";
         }
     }
     catch (const std::exception& e) {
@@ -359,7 +356,7 @@ time_t InterfazUsuario::convertirFecha(const std::string& fecha){
 
 void InterfazUsuario::ejecutar() {
     int opcion = 0;
-    while (opcion != 8) {
+    while (opcion != 9) {
         menu();
         std::cout << "Seleccione la opción que desea realizar: ";
         std::cin >> opcion;
@@ -372,6 +369,7 @@ void InterfazUsuario::ejecutar() {
         manejarOpcion(opcion);
     }
 }
+
 
 void InterfazUsuario::registrarCamion(int id){
     camionesGrafo.push_back(id);
@@ -397,12 +395,10 @@ void InterfazUsuario::generarRutaAleatoria(int idCamion){
 
     std::vector<Punto> ruta;
 
-    // Selección de 4 centros de recolección aleatorios
     for (int i = 0; i < 4; ++i) {
         ruta.push_back(centrosRecoleccion[i]);
     }
 
-    // Selección de 4 centros de procesamiento aleatorios
     for (int i = 0; i < 4; ++i) {
         ruta.push_back(centrosProcesamiento[i]);
     }
@@ -418,7 +414,7 @@ void InterfazUsuario::generarRutaAleatoria(int idCamion){
         NodoGrafo* destino = grafo.buscarNodo(ruta[i + 1].id);
 
         if (origen && destino) {
-            // Usar buscarRutaOptima para obtener la ruta desde el nodo origen hasta el nodo destino
+
             algoritmo.buscarRutaOptima(grafo, origen->id, destino->id);
 
             std::vector<NodoGrafo*> rutaCamion = algoritmo.obtenerRuta(destino->id);

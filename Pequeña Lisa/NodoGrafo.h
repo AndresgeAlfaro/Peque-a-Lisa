@@ -9,7 +9,6 @@ public:
     std::string nombre;
     std::string ubicacion;
 
-    // Clase interna que representará las aristas/conexiones del nodo
     class Arista {
     public:
         NodoGrafo* destino;
@@ -21,7 +20,6 @@ public:
 
     Arista* listaAdyacencia;
 
-//public:
     NodoGrafo(int = 0, std::string = "", std::string = "");
     ~NodoGrafo();
 
