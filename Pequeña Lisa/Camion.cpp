@@ -42,13 +42,11 @@ std::string Camion::mostrarRuta(){
 	return s.str();
 }
 
-// Función que ejecuta la ruta del camión y registra cada nodo en el árbol AVL
 void Camion::ejecutarRuta() {
 	for (NodoGrafo* nodo : rutaAsignada) {
 		std::cout << "Visitando nodo: " << nodo->getNombre() << " - " << nodo->getUbicacion() << std::endl;
-		arbolRutas.insertar(nodo);  // Insertar el nodo visitado en el árbol AVL
+		arbolRutas.insertar(nodo);
 	}
 
-	// Mostrar el árbol balanceado después de completar la ruta
 	arbolRutas.mostrar();
 }

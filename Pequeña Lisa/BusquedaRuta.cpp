@@ -41,7 +41,6 @@ void BusquedaRuta::buscarRutaOptima(GrafoDistribucion& grafo, int idInicio, int 
         return;
     }
 
-    // Inicializar la lista de distancias
     listaDistancias = nullptr;
     GrafoDistribucion::NodoLista* actual = grafo.head;
     while (actual) {

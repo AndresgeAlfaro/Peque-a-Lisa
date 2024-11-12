@@ -2,37 +2,37 @@
 #define ARBOLAVL_H
 
 #include <iostream>
-#include "NodoGrafo.h"  // Suponiendo que esta clase está definida en este archivo
+#include "NodoGrafo.h"
 
-// Definición de la estructura del nodo para el árbol AVL
 struct NodoArbol {
-    NodoGrafo* nodo;  // Nodo del grafo
-    int altura;       // Altura del nodo en el árbol
+    NodoGrafo* nodo;
+    int altura;
     NodoArbol* izquierda;
     NodoArbol* derecha;
 
     NodoArbol(NodoGrafo* _nodo) : nodo(_nodo), altura(1), izquierda(nullptr), derecha(nullptr) {}
 };
 
-// Clase para el Árbol AVL
 class ArbolAVL {
 public:
-    ArbolAVL();  // Constructor
+    ArbolAVL();
     ~ArbolAVL();
-    void insertar(NodoGrafo* nuevoNodo);  // Función para insertar un nodo
-    void mostrar();  // Función para mostrar el árbol (en orden)
+    void insertar(NodoGrafo* nuevoNodo);
+    void mostrar();
     void destruirRec(NodoArbol*);
+    void mostrarGrafoPorID();
+    void mostrarGrafoPorIDRecursivo(NodoArbol* );
 
 private:
-    NodoArbol* raiz;  // Raíz del árbol AVL
+    NodoArbol* raiz;
 
-    // Funciones privadas
     NodoArbol* insertarRec(NodoArbol* raiz, NodoGrafo* nuevoNodo);
     int obtenerAltura(NodoArbol* nodo);
     int obtenerBalance(NodoArbol* nodo);
     NodoArbol* rotarIzquierda(NodoArbol* raiz);
     NodoArbol* rotarDerecha(NodoArbol* raiz);
     void mostrarRec(NodoArbol* raiz);
+    
 };
 
 #endif // ARBOLAVL_H

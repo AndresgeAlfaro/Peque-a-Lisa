@@ -18,7 +18,6 @@ public:
 
     NodoLista* head;
 
-//public: 
     GrafoDistribucion();
     ~GrafoDistribucion();
     void agregarNodo(NodoGrafo*);
@@ -26,6 +25,7 @@ public:
     NodoGrafo* buscarNodo(int);
     bool existeNodo(int);
     std::string mostrarGrafo() const;
+    void mostrarGrafoPorCamion(int)const;
 
 };
 

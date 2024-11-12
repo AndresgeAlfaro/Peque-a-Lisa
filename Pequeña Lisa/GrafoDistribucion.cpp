@@ -31,7 +31,7 @@ void GrafoDistribucion::agregarConexion(int idOrigen, int idDestino, double peso
         origen->agregarConexion(destino, peso);
     }
     else {
-        std::cerr << "Error: No se encontro el nodo de origen o destino para agregar la conexión.\n";
+        std::cerr << "Error: No se encontro el nodo de origen o destino para agregar la conexion.\n";
     }
 }
 
@@ -66,3 +66,23 @@ std::string GrafoDistribucion::mostrarGrafo() const{
     }
     return s.str();
 }
+
+void GrafoDistribucion::mostrarGrafoPorCamion(int idCamion) const {
+    std::stringstream s;
+    NodoLista* actual = head;
+
+    while (actual) {
+        
+        if (actual->nodo->getId() == idCamion) {
+            s << actual->nodo->mostrarConexiones() << "\n";
+        }
+        actual = actual->siguiente;
+    }
+    if (s.str().empty()) {
+        s << "No se encontró ningún nodo para el camión con ID " << idCamion << ".\n";
+    }
+
+    std::cout << s.str();
+}
+
+
