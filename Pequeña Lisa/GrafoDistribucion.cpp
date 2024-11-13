@@ -79,7 +79,7 @@ void GrafoDistribucion::mostrarGrafoPorCamion(int idCamion) const {
         actual = actual->siguiente;
     }
     if (s.str().empty()) {
-        s << "No se encontró ningún nodo para el camión con ID " << idCamion << ".\n";
+        s << "No se encontro ningun nodo para el camion con ID " << idCamion << ".\n";
     }
 
     std::cout << s.str();

@@ -4,7 +4,6 @@
 #include "NodoGrafo.h"
 #include <iostream>
 #include <string>
-#include <sstream>
 
 class GrafoDistribucion{
 public:
